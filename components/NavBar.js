@@ -20,7 +20,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className='max-w-6xl  mx-auto px-4 py-10 md:py-20'>
+    <div className='max-w-6xl mx-auto px-4 py-10 md:py-20 fade-in-bottom navBar'>
       <div className='flex  md:flex-row justify-between items-center'>
         {/* Logo / Home / Text */}
         <div className='flex flex-col'>
@@ -56,7 +56,6 @@ export default function Navbar() {
                     } hover:!text-white z-10`}>
                     {routeName}{' '}
                     <span
-                      // style={{ zIndex: -1 }}
                       className={`absolute -z-1 left-0 -bottom-1 w-full  transition-all bg-brandPrimary group-hover:h-full 
                     ${router.asPath === routeUrl ? 'h-0.5' : 'h-0'}`}></span>
                     {router.asPath === routeUrl && (

@@ -40,7 +40,7 @@ export default function Hero() {
           <img
             src={userData.avatarUrl}
             alt='avatar'
-            className='!h-4/5 shadow'
+            className='!h-4/5 shadow fade-in-bottom hero-avatar'
           />
           <div className='flex flex-row justify-between mt-4'>
             <div className='flex flex-row space-x-4'>
