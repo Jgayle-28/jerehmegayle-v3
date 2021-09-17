@@ -5,20 +5,20 @@ import useWindowDimensions from '@hooks/useWindowDimensions';
 
 export default function FavoriteProjects() {
   const { height, width } = useWindowDimensions();
-  console.log('height :>> ', height);
   const controls = useAnimation();
 
+  const [userScrollAmount, setUserScrollAmount] = useState(0);
   const [headerOffset, setHeaderOffset] = useState(0);
   const [headerOnScreen, setHeaderOnScreen] = useState(false);
-
-  console.log('headerOffset :>> ', headerOffset);
-  console.log('headerOnScreen :>> ', headerOnScreen);
+  // console.log('userScrollAmount :>> ', userScrollAmount);
+  // console.log('headerOnScreen :>> ', headerOnScreen);
+  // console.log('headerOffset :>> ', headerOffset);
 
   useEffect(() => {
     let elem = document.getElementById('project-header');
     let rect = elem.getBoundingClientRect();
-    console.log('rect :>> ', rect);
-    setHeaderOffset(height - rect.top + 60);
+    // console.log('rect :>> ', rect);
+    setHeaderOffset(height - rect.top);
   }, []);
 
   // Controls event listener for scroll / sticky nav
@@ -31,13 +31,16 @@ export default function FavoriteProjects() {
     };
   }, []);
 
-  const handleScrollChange = () => {
-    const scrollAmount = window.scrollY;
-    console.log('scrollAmount :>> ', scrollAmount);
-
-    if (scrollAmount >= headerOffset && headerOnScreen === false) {
+  useEffect(() => {
+    if (headerOnScreen === true) return;
+    if (userScrollAmount > headerOffset) {
       setHeaderOnScreen(true);
     }
+  }, [userScrollAmount]);
+
+  const handleScrollChange = () => {
+    const scrollAmount = window.scrollY;
+    setUserScrollAmount(scrollAmount);
   };
 
   // Animates header in
@@ -47,27 +50,30 @@ export default function FavoriteProjects() {
         x: 0,
         opacity: 1,
         transition: {
-          duration: 1.5,
-          delay: 1,
+          duration: 1.6,
+          delay: 0.2,
           ease: 'anticipate',
         },
       });
     }
   }, [headerOnScreen]);
+
   return (
     <div className='bg-[#eceff1] -mt-40 dark:bg-gray-900'>
       <div className='max-w-6xl mx-auto'>
         <motion.header
-          initial={{ opacity: 0, x: -10 }}
+          initial={{ opacity: 0, x: -40 }}
           animate={controls}
-          // ref={headerRef}
           id='project-header'
           className='flex flex-col md:flex-row justify-between items-center pt-40 mx-10 md:my-20 lg:my-0'>
           <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-brandPrimary my-20 md:my-0 md:text-brandPrimary dark:text-gray-600 text-center'>
             Favorite Projects
           </h1>
           <Link href='/work'>
-            <a className='mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700'>
+            <motion.a
+              initial={{ opacity: 0, x: 80 }}
+              animate={controls}
+              className='mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='16'
@@ -83,12 +89,15 @@ export default function FavoriteProjects() {
                 />
               </svg>
               <p>View all</p>
-            </a>
+            </motion.a>
           </Link>
         </motion.header>
 
         {/* Grid starts here */}
-        <div className='grid md:grid-cols-3 gap-8 lg:-mt-8 pb-40'>
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          animate={controls}
+          className={`grid md:grid-cols-3 gap-8 lg:-mt-8 pb-40`}>
           {/* Single card */}
           <a
             href='https://tailwindmasterkit.com'
@@ -145,7 +154,7 @@ export default function FavoriteProjects() {
               </h1>
             </div>
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

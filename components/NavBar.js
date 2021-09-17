@@ -17,15 +17,15 @@ const variants = {
       y: {
         ease: 'anticipate',
         duration: 1,
-        delay: 3.5,
+        delay: 3.45,
       },
       opacity: {
         duration: 1,
-        delay: 3.5,
+        delay: 3.45,
       },
     },
   },
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: -50 },
 };
 
 export default function Navbar() {
