@@ -1,9 +1,9 @@
 import React from 'react';
+import '../styles/Home.module.css';
 
 const Loader = () => {
   return (
     <div className='preloader'>
-      <p>Loading...Test</p>
       <div className='folding-cube'>
         <div className='cube1 cube'></div>
         <div className='cube2 cube'></div>

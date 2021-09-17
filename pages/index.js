@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../styles/Home.module.css';
+
 import ContainerBlock from '../components/ContainerBlock';
 import FavoriteProjects from '../components/FavoriteProjects';
 import LatestCode from '../components/LatestCode';
@@ -16,7 +16,7 @@ export default function Home({ repositories }) {
   }, []);
 
   const demoAsyncCall = () => {
-    return new Promise((resolve) => setTimeout(() => resolve(), 2000));
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
   };
 
   return (
