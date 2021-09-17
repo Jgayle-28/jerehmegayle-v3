@@ -13,6 +13,9 @@ module.exports = {
         2000: '2000ms',
         4000: '4000ms',
       },
+      zIndex: {
+        '-1': '-1',
+      },
     },
   },
   variants: {
