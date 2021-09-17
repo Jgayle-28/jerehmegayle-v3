@@ -1,11 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { motion, useAnimation } from 'framer-motion';
+import useWindowDimensions from '@hooks/useWindowDimensions';
 
 export default function FavoriteProjects() {
+  const { height, width } = useWindowDimensions();
+  console.log('height :>> ', height);
+  const controls = useAnimation();
+
+  const [headerOffset, setHeaderOffset] = useState(0);
+  const [headerOnScreen, setHeaderOnScreen] = useState(false);
+
+  console.log('headerOffset :>> ', headerOffset);
+  console.log('headerOnScreen :>> ', headerOnScreen);
+
+  useEffect(() => {
+    let elem = document.getElementById('project-header');
+    let rect = elem.getBoundingClientRect();
+    console.log('rect :>> ', rect);
+    setHeaderOffset(height - rect.top + 60);
+  }, []);
+
+  // Controls event listener for scroll / sticky nav
+  useEffect(() => {
+    if (window !== undefined) {
+      window.addEventListener('scroll', handleScrollChange);
+    }
+    return () => {
+      window.removeEventListener('scroll', handleScrollChange);
+    };
+  }, []);
+
+  const handleScrollChange = () => {
+    const scrollAmount = window.scrollY;
+    console.log('scrollAmount :>> ', scrollAmount);
+
+    if (scrollAmount >= headerOffset && headerOnScreen === false) {
+      setHeaderOnScreen(true);
+    }
+  };
+
+  // Animates header in
+  useEffect(() => {
+    if (headerOnScreen) {
+      controls.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 1.5,
+          delay: 1,
+          ease: 'anticipate',
+        },
+      });
+    }
+  }, [headerOnScreen]);
   return (
     <div className='bg-[#eceff1] -mt-40 dark:bg-gray-900'>
       <div className='max-w-6xl mx-auto'>
-        <header className='flex flex-col md:flex-row justify-between items-center pt-40 mx-10 md:my-20 lg:my-0'>
+        <motion.header
+          initial={{ opacity: 0, x: -10 }}
+          animate={controls}
+          // ref={headerRef}
+          id='project-header'
+          className='flex flex-col md:flex-row justify-between items-center pt-40 mx-10 md:my-20 lg:my-0'>
           <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-brandPrimary my-20 md:my-0 md:text-brandPrimary dark:text-gray-600 text-center'>
             Favorite Projects
           </h1>
@@ -28,7 +85,7 @@ export default function FavoriteProjects() {
               <p>View all</p>
             </a>
           </Link>
-        </header>
+        </motion.header>
 
         {/* Grid starts here */}
         <div className='grid md:grid-cols-3 gap-8 lg:-mt-8 pb-40'>

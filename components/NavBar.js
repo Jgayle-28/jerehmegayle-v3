@@ -1,12 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import routes from '@constants/routes';
 import userData from '@constants/data';
 import Instagram from 'icons/Instagram';
 import Twitter from 'icons/Twitter';
 import LinkedIn from 'icons/LinkedIn';
+
+const variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      y: {
+        ease: 'anticipate',
+        duration: 1,
+        delay: 3.5,
+      },
+      opacity: {
+        duration: 1,
+        delay: 3.5,
+      },
+    },
+  },
+  hidden: { opacity: 0, y: 50 },
+};
 
 export default function Navbar() {
   const router = useRouter();
@@ -20,8 +40,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className='max-w-6xl mx-auto px-4 py-10 md:py-20 fade-in-bottom navBar'>
-      <div className='flex  md:flex-row justify-between items-center'>
+    <motion.div
+      variants={variants}
+      initial='hidden'
+      animate='visible'
+      className='max-w-6xl mx-auto px-4 py-10 md:py-20'>
+      {/* <div className='max-w-6xl mx-auto px-4 py-10 md:py-20 fade-in-bottom navBar'> */}
+      <div className='flex md:flex-row justify-between items-center'>
         {/* Logo / Home / Text */}
         <div className='flex flex-col'>
           <Link href='/'>
@@ -154,6 +179,6 @@ export default function Navbar() {
           </a>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }
