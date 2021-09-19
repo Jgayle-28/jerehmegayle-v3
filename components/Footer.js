@@ -12,18 +12,16 @@ export default function Footer() {
         <div className='flex flex-col space-y-4 md:space-y-0 md:flex-row justify-between md:items-center mt-8'>
           <div />
           <div className='flex flex-col items-center font-light'>
-            {/* Support me by keeping this in the footer, please. :) */}
             <p className='mb-3'>
-              Made with 💙 by
-              <div className='inline-block transform hover:scale-110 hover:-rotate-3 transition duration-300'>
+              Made with<span className='mr-2 ml-1'>💙 </span> by
+              <span className='inline-block transform hover:scale-110 hover:-rotate-3 transition duration-300'>
                 <a
                   className='hover:bg-brandPrimary rounded-md px-2 py-1  hover:text-gray-50'
                   href='/'>
                   Jerehme Gayle
                 </a>
-              </div>
+              </span>
             </p>
-
             <div>
               <p>&copy; Jerehme Gayle. All Rights Reserved.</p>
             </div>

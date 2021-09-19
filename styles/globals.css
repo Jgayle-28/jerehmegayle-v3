@@ -34,6 +34,9 @@ Navbar
 Hero
 ==============================
 */
+.hero {
+  transition: height 2s ease-in;
+}
 .hero-avatar {
   animation-delay: 3.4s;
 }

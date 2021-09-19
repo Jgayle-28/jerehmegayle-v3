@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import BoxArrowOutRight from 'icons/BoxArrowOutRight';
 
-export default function LatestCode({ repositories }) {
+export default function Testimonials({ repositories }) {
   const headerRef = useRef();
   const [repos, setRepos] = useState([]);
   const { height, width } = useWindowDimensions();
@@ -96,7 +96,7 @@ export default function LatestCode({ repositories }) {
           ref={headerRef}
           className='flex flex-col md:flex-row justify-between items-center md:pt-40 mx-10'>
           <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-brandPrimary my-20 md:my-0 md:text-brandPrimary dark:text-gray-600 text-center lg:text-left'>
-            Latest Code
+            Kind Words
           </h1>
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
             <a

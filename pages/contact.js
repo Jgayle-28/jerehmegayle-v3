@@ -1,10 +1,11 @@
 import React from 'react';
-import ContainerBlock from 'components/ContainerBlock';
+import ContainerBlock from '@components/ContainerBlock';
+import Contact from '@components/Contact';
 
 const contact = () => {
   return (
     <ContainerBlock>
-      <h1>contact</h1>
+      <Contact />
     </ContainerBlock>
   );
 };

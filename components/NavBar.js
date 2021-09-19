@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import AppContext from 'context/appContext';
+// Icons
 import routes from '@constants/routes';
 import userData from '@constants/data';
 import Instagram from 'icons/Instagram';
 import Twitter from 'icons/Twitter';
 import LinkedIn from 'icons/LinkedIn';
+import ArrowDown from 'icons/ArrowDown';
 
 const variants = {
   visible: {
@@ -15,25 +18,27 @@ const variants = {
     y: 0,
     transition: {
       y: {
-        ease: 'anticipate',
-        duration: 1,
+        ease: 'easeOut',
+        duration: 0.8,
         delay: 3.45,
       },
       opacity: {
-        duration: 1,
+        duration: 0.8,
         delay: 3.45,
       },
     },
   },
-  hidden: { opacity: 0, y: -50 },
+  hidden: { opacity: 0, y: -80 },
 };
 
 export default function Navbar() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  console.log('router.asPath :>> ', router.asPath);
+  const appContext = useContext(AppContext);
+  const { initialLoad } = appContext;
+
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -42,8 +47,8 @@ export default function Navbar() {
   return (
     <motion.div
       variants={variants}
-      initial='hidden'
-      animate='visible'
+      initial={initialLoad && 'hidden'} //Stops animation on every load
+      animate={initialLoad && 'visible'} //Stops animation on every load
       className='max-w-6xl mx-auto px-4 py-10 md:py-20'>
       {/* <div className='max-w-6xl mx-auto px-4 py-10 md:py-20 fade-in-bottom navBar'> */}
       <div className='flex md:flex-row justify-between items-center'>
@@ -72,7 +77,7 @@ export default function Navbar() {
               if (routeUrl === '/' && router.asPath === '/') return;
               // Return nav links
               return (
-                <Link href={routeUrl}>
+                <Link href={routeUrl} key={routeName}>
                   <a
                     className={`relative w-max text-base pb-1 pt-2 px-2 group ${
                       router.asPath === routeUrl
@@ -83,20 +88,7 @@ export default function Navbar() {
                     <span
                       className={`absolute -z-1 left-0 -bottom-1 w-full  transition-all bg-brandPrimary group-hover:h-full 
                     ${router.asPath === routeUrl ? 'h-0.5' : 'h-0'}`}></span>
-                    {router.asPath === routeUrl && (
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        width='16'
-                        height='16'
-                        fill='currentColor'
-                        className='bi bi-arrow-down inline-block h-3 w-3'
-                        viewBox='0 0 16 16'>
-                        <path
-                          fillRule='evenodd'
-                          d='M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z'
-                        />
-                      </svg>
-                    )}
+                    {router.asPath === routeUrl && <ArrowDown />}
                   </a>
                 </Link>
               );

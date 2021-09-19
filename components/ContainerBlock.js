@@ -8,7 +8,7 @@ const ContainerBlock = ({ children, ...customMeta }) => {
   const router = useRouter();
 
   const meta = {
-    title: 'Jerehme Gayle - Developer, Husband, Father of 6',
+    title: 'Jerehme Gayle - Developer, Designer, Learner, Creator',
     description: `I've been developing websites for 5 years straight. Get in touch with me to know more.`,
     image: '/img/avatar.jpeg',
     type: 'website',

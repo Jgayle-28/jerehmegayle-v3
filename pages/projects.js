@@ -1,10 +1,11 @@
 import React from 'react';
 import ContainerBlock from 'components/ContainerBlock';
+import Projects from '@components/Projects';
 
 const projects = () => {
   return (
-    <ContainerBlock>
-      <h1>projects</h1>
+    <ContainerBlock title='Projects - Manu Arora'>
+      <Projects />
     </ContainerBlock>
   );
 };
