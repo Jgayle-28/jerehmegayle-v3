@@ -1,5 +1,8 @@
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import '../styles/globals.css';
 import '../styles/Home.module.css';
+
 import { ThemeProvider } from 'next-themes';
 import AppState from 'context/AppState';
 

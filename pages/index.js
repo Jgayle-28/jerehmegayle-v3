@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext } from 'react';
-import ContainerBlock from '@components/ContainerBlock';
+import ContainerBlock from '@components/common/ContainerBlock';
 import FavoriteProjects from '@components/FavoriteProjects';
 import LatestCode from '@components/LatestCode';
 import Hero from '@components/Hero';
 import Testimonials from '@components/Testimonials';
-import Loader from '@components/Loader';
+import Loader from '@components/common/Loader';
 import getLatestRepos from '@lib/getLatestRepos';
 import userData from '@constants/data';
 import useScrollBlock from '@hooks/useScrollBlock';
@@ -65,8 +65,8 @@ export default function Home({ repositories }) {
 export const getServerSideProps = async () => {
   let token = process.env.GITHUB_AUTH_TOKEN;
 
-  const repositories = [];
-  // const repositories = await getLatestRepos(userData, token);
+  // const repositories = [];
+  const repositories = await getLatestRepos(userData, token);
 
   return {
     props: {

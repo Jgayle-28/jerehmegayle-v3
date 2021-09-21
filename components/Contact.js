@@ -8,15 +8,13 @@ import {
   sectionVariants,
 } from '@constants/helperData';
 // Icons
-import Twitter from 'icons/Twitter';
 import Instagram from 'icons/Instagram';
 import LinkedIn from 'icons/LinkedIn';
 import Mail from 'icons/Mail';
 
 export default function Contact() {
   const [state, setState] = useState(initialState);
-  const [status, setStatus] = useState(null);
-  console.log('status :>> ', status);
+  const [formStatus, setFormStatus] = useState(null);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -33,57 +31,52 @@ export default function Contact() {
     xhr.onreadystatechange = () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
       if (xhr.status === 200) {
-        form.reset();
-        setStatus('SUCCESS');
+        // form.reset();
+        setFormStatus('SUCCESS');
       } else {
-        setStatus('ERROR');
+        setFormStatus('ERROR');
       }
     };
     xhr.send(data);
     // Reset Form and Messages
     setTimeout(() => {
-      setStatus(null);
+      setFormStatus(null);
     }, 300);
     setState(initialState);
   };
 
   const getFormAction = () => {
-    switch (status) {
-      case null:
-        return (
-          <button
-            type='submit'
-            className='bg-white border border-1 border-brandPrimary rounded-md w-1/2 mx-4 mt-8 py-2 text-brandPrimary hover:text-white text-xs font-bold hover:bg-brandPrimary transition-all duration-500 ease'>
-            Send It
-          </button>
-        );
-      case 'SUCCESS':
-        return (
-          <Notification
-            type='SUCCESS'
-            msg='Thank you for your time. Your message was sent successfully, I will get back to you shortly'
-          />
-        );
-      case 'ERROR':
-        return (
-          <Notification
-            type='ERROR'
-            msg='OOps, something went wrong. Please refresh and try again.'
-          />
-        );
-      default:
-        break;
+    // If Form has not been submitted or cleared
+    if (formStatus === null) {
+      return (
+        <button
+          type='submit'
+          className='bg-white border border-1 border-brandPrimary rounded-md w-1/2 mx-4 mt-8 py-2 text-brandPrimary hover:text-white text-xs font-bold hover:bg-brandPrimary transition-all duration-500 ease'>
+          Send It
+        </button>
+      );
     }
+    // Notification for form submission
+    return (
+      <Notification
+        type={formStatus}
+        msg={
+          formStatus === 'SUCCESS'
+            ? 'Thank you for your time. Your message was sent successfully, I will get back to you shortly'
+            : ' OOps, something went wrong. Please refresh and try again.'
+        }
+      />
+    );
   };
 
   return (
     <section>
-      <div className='max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800 antialiased'>
+      <div className='max-w-6xl mx-auto h-36 md:h-48 bg-white dark:bg-gray-800 antialiased'>
         <motion.h1
           variants={headerVariants}
           initial='hidden'
           animate='visible'
-          className='text-brandPrimary dark:text-gray-600 text-5xl md:text-9xl font-bold py-20 text-center md:text-left'>
+          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'>
           Contact
         </motion.h1>
       </div>
@@ -91,7 +84,7 @@ export default function Contact() {
         variants={sectionVariants}
         initial='hidden'
         animate='visible'
-        className='relative z-10 rounded-md shadow-md p-4 md:p-10 lg:p-20 max-w-6xl mx-auto mb-20 -mt-4 bg-[#eceff1] dark:bg-gray-900'>
+        className='relative z-10 rounded-md shadow-md p-4 md:p-10 lg:p-20 max-w-6xl mx-auto mb-20 bg-[#eceff1] dark:bg-gray-900  z-0'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <div className='md:ml-4'>
             <header className=''>
@@ -128,13 +121,6 @@ export default function Contact() {
                 href={userData.socialLinks.instagram}
                 className='text-gray-500 h-10 w-10 rounded-full hover:bg-brandPrimary flex items-center justify-center cursor-pointer hover:text-white transition all ease duration-300'>
                 <Instagram />
-              </a>
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                href={userData.socialLinks.twitter}
-                className='text-gray-500 h-10 w-10 rounded-full hover:bg-brandPrimary flex items-center justify-center cursor-pointer hover:text-white transition all ease duration-300'>
-                <Twitter />
               </a>
             </div>
           </div>
@@ -187,13 +173,13 @@ export default function Contact() {
   );
 }
 
-const Notification = (type, msg) => {
+const Notification = ({ type, msg }) => {
   return (
     <div
-      className={`rounded-md py-2 mt-2 px-1 mx-4 ${
-        type === 'ERROR' ? 'bg-red-500' : 'bg-green-500'
+      className={`rounded-md p-2 mt-2 mx-4 ${
+        type === 'ERROR' ? 'bg-[#ec407a]' : 'bg-[#1de9b6]'
       }`}>
-      {msg}
+      <span className='font-light text-sm'>{msg}</span>
     </div>
   );
 };

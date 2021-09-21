@@ -1,10 +1,11 @@
 import React from 'react';
-import ContainerBlock from 'components/ContainerBlock';
+import ContainerBlock from '@components/common/ContainerBlock';
+import AboutMe from '@components/AboutMe';
 
 const about = () => {
   return (
     <ContainerBlock>
-      <h1>about</h1>
+      <AboutMe />
     </ContainerBlock>
   );
 };

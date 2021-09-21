@@ -40,3 +40,14 @@ Hero
 .hero-avatar {
   animation-delay: 3.4s;
 }
+/*
+==============================
+Slider overrides
+==============================
+*/
+.slick-dots li button:before {
+  color: #ccc !important;
+}
+.slick-dots li.slick-active button:before {
+  color: #3370ff !important;
+}

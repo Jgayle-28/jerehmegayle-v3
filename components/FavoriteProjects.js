@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import BoxArrowOutRight from 'icons/BoxArrowOutRight';
+import LandingSectionHeader from './common/LandingSectionHeader';
 
 export default function FavoriteProjects({ finishedAnimation }) {
   const { height, width } = useWindowDimensions();
@@ -66,19 +67,17 @@ export default function FavoriteProjects({ finishedAnimation }) {
 
   return (
     <div
-      className={`bg-[#eceff1] dark:bg-gray-900 ${getCurrentClass()}duration-2000`}>
+      className={`bg-[#eceff1] dark:bg-gray-900 ${getCurrentClass()}duration-2000 px-5  pt-0 md:pt-40 md:pt-0`}>
       <div className='max-w-6xl mx-auto'>
         <motion.header
           initial={{ opacity: 0, x: -40 }}
           animate={controls}
           id='project-header'
-          className='flex flex-col md:flex-row justify-between items-center pt-40 mx-10 md:my-20 lg:my-0'>
-          <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-brandPrimary my-20 md:my-0 md:text-brandPrimary dark:text-gray-600 text-center'>
-            Favorite Projects
-          </h1>
+          className='flex flex-row flex-wrap justify-start md:justify-between md:items-center pt-20 md:pt-40 mx-0 md:mx-10 my-0'>
+          <LandingSectionHeader headerName='Favorite Projects' />
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
-            <Link href='/work'>
-              <a className='mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg dark:shadow-dark-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
+            <Link href='/projects'>
+              <a className='mb-10 md:mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg dark:shadow-dark-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
                 <BoxArrowOutRight />
                 <p>View all</p>
               </a>
@@ -90,7 +89,7 @@ export default function FavoriteProjects({ finishedAnimation }) {
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           animate={controls}
-          className={`grid md:grid-cols-3 gap-8 lg:-mt-8 pb-40`}>
+          className={`grid md:grid-cols-3 gap-8 lg:-mt-2 pb-40`}>
           {/* Single card */}
           <a
             href='https://tailwindmasterkit.com'

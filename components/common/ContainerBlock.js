@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../navBar/NavBar';
+import Footer from '../Footer';
 
 const ContainerBlock = ({ children, ...customMeta }) => {
   const router = useRouter();

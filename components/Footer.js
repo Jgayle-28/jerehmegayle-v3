@@ -1,8 +1,5 @@
 import React from 'react';
-import userData from '@constants/data';
-import Instagram from 'icons/Instagram';
-import Twitter from 'icons/Twitter';
-import LinkedIn from 'icons/LinkedIn';
+import Socials from './common/Socials';
 
 export default function Footer() {
   return (
@@ -26,23 +23,9 @@ export default function Footer() {
               <p>&copy; Jerehme Gayle. All Rights Reserved.</p>
             </div>
           </div>
-
+          {/* Socials */}
           <div className='space-x-4 flex flex-row items-center'>
-            <a
-              href={userData.socialLinks.instagram}
-              className='text-base font-normal text-gray-600 dark:text-gray-300 transition duration-300 ease hover:!text-brandPrimary'>
-              <Instagram />
-            </a>
-            <a
-              href={userData.socialLinks.twitter}
-              className='text-base font-normal text-gray-600 dark:text-gray-300 transition duration-300 ease hover:!text-brandPrimary'>
-              <Twitter />
-            </a>
-            <a
-              href={userData.socialLinks.linkedin}
-              className='text-base font-normal text-gray-600 dark:text-gray-300 transition duration-300 ease hover:!text-brandPrimary'>
-              <LinkedIn />
-            </a>
+            <Socials />
           </div>
         </div>
       </div>

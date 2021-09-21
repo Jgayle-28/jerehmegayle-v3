@@ -1,13 +1,13 @@
 import React from 'react';
 import ContainerBlock from '@components/common/ContainerBlock';
-import Experience from '@components/Experience';
+import ProjectTemplate from '@components/ProjectTemplate';
 
-const experience = () => {
+const project = () => {
   return (
     <ContainerBlock>
-      <Experience />
+      <ProjectTemplate />
     </ContainerBlock>
   );
 };
 
-export default experience;
+export default project;

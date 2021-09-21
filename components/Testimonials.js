@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import userData from '@constants/data';
+import { testimonials } from '@constants/testimonials';
 import { motion, useAnimation } from 'framer-motion';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import BoxArrowOutRight from 'icons/BoxArrowOutRight';
+import LandingSectionHeader from './common/LandingSectionHeader';
 
 export default function Testimonials({ repositories }) {
   const headerRef = useRef();
@@ -87,64 +88,57 @@ export default function Testimonials({ repositories }) {
   }, [headerOnScreen]);
 
   return (
-    <section className='bg-[#eceff1] -mt-40 dark:bg-gray-900 pb-40'>
-      <div className='max-w-6xl mx-auto'>
+    <section className='bg-[#eceff1] -mt-40 dark:bg-gray-900 pb-40 px-5'>
+      <div className='max-w-6xl mx-auto mb-6'>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={controls}
           id='code-header'
           ref={headerRef}
-          className='flex flex-col md:flex-row justify-between items-center md:pt-40 mx-10'>
-          <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-brandPrimary my-20 md:my-0 md:text-brandPrimary dark:text-gray-600 text-center lg:text-left'>
+          className='flex flex-wrap flex-row md:justify-between items-center md:pt-40 mx-0 md:mx-10'>
+          <LandingSectionHeader headerName='Kind Words' />
+          {/* <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-black my-20 md:my-0 md:text-black dark:text-gray-600 text-center lg:text-left'>
             Kind Words
-          </h1>
-          <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
-            <a
-              target='_blank'
-              rel='noopener noreferrer'
-              href={`https://github.com/${userData.githubUsername}`}
-              className='mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg dark:shadow-dark-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
-              <BoxArrowOutRight />
-              <p>View GitHub</p>
-            </a>
-          </motion.div>
+          </h1> */}
         </motion.div>
       </div>
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         animate={controls}
         id='code-header'
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-10 lg:-mt-10 gap-y-20'>
-        {/* Single github Repo */}
-
-        {repos &&
-          repos.map((latestRepo, idx) => (
-            <GithubRepoCard latestRepo={latestRepo} key={idx} />
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto lg:-mt-4 gap-y-20'>
+        {testimonials &&
+          testimonials.map((testimonial, idx) => (
+            <TestimonialCard testimonial={testimonial} key={idx} />
           ))}
       </motion.div>
     </section>
   );
 }
 
-const GithubRepoCard = ({ latestRepo }) => {
+const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className='github-repo'>
-      <h1 className='font-semibold text-xl dark:text-gray-200 text-gray-700'>
-        {latestRepo.name}
-      </h1>
-      <p className='text-base font-normal my-4 text-gray-500'>
-        {latestRepo.description}
-      </p>
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href={latestRepo.clone_url}
-        className='font-semibold group flex flex-row space-x-2 w-full items-center'>
-        <p>View Repository </p>
-        <div className='transform  group-hover:translate-x-2 transition duration-300'>
-          &rarr;
+    <div class='w-full mx-auto rounded-lg bg-white shadow-lg px-5 pt-5 pb-10 dark:text-gray-600 text-gray-800 dark:bg-gray-800 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
+      <div class='w-full pt-1 pb-5'>
+        <div class='overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg'>
+          <img src={testimonial.avatar} alt='avatar' />
         </div>
-      </a>
+      </div>
+      <div class='w-full mb-10'>
+        <div class='text-3xl text-brandPrimary text-left leading-tight h-3'>
+          “
+        </div>
+        <p class='text-sm text-gray-600 text-center px-5'>{testimonial.text}</p>
+        <div class='text-3xl text-brandPrimary text-right leading-tight h-3 -mt-3'>
+          ”
+        </div>
+      </div>
+      <div class='w-full'>
+        <p class='text-md text-brandPrimary dark:text-white font-bold text-center'>
+          {testimonial.name}
+        </p>
+        <p class='text-xs text-gray-500 text-center'>{testimonial.title}</p>
+      </div>
     </div>
   );
 };

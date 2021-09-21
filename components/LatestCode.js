@@ -3,6 +3,7 @@ import userData from '@constants/data';
 import { motion, useAnimation } from 'framer-motion';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import BoxArrowOutRight from 'icons/BoxArrowOutRight';
+import LandingSectionHeader from './common/LandingSectionHeader';
 
 export default function LatestCode({ repositories }) {
   const headerRef = useRef();
@@ -87,17 +88,15 @@ export default function LatestCode({ repositories }) {
   }, [headerOnScreen]);
 
   return (
-    <section className='bg-[#eceff1] -mt-40 dark:bg-gray-900 pb-40'>
+    <section className='bg-[#eceff1] -mt-40 dark:bg-gray-900 pb-40 px-5'>
       <div className='max-w-6xl mx-auto'>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={controls}
           id='code-header'
           ref={headerRef}
-          className='flex flex-col md:flex-row justify-between items-center md:pt-40 mx-10'>
-          <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-brandPrimary my-20 md:my-0 md:text-brandPrimary dark:text-gray-600 text-center lg:text-left'>
-            Latest Code
-          </h1>
+          className='flex flex-wrap flex-row justify-start md:justify-between items-center md:pt-40 mx-0 md:mx-10'>
+          <LandingSectionHeader headerName='Latest Code' />
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
             <a
               target='_blank'
