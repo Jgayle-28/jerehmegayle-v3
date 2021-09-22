@@ -9,7 +9,7 @@ const userData = {
   projects: [
     {
       title: 'STEMuli',
-      link: 'https://tailwindmasterkit.com',
+      link: '',
       imgUrl: '/img/stemuli/mockup.jpg',
       projectImages: [
         '/img/stemuli/mockup.jpg',
@@ -31,7 +31,7 @@ const userData = {
     },
     {
       title: 'Fly Fish Finder',
-      link: 'https://placeholdertech.in',
+      link: '',
       imgUrl: '/img/fff/fff.jpg',
       projectImages: [
         '/img/fff/fff.jpg',
@@ -48,7 +48,7 @@ const userData = {
     },
     {
       title: 'Miranda',
-      link: 'https://manuarora.in',
+      link: '',
       imgUrl: '/img/miranda/mockup.jpg',
       projectImages: [
         '/img/miranda/mockup.jpg',
