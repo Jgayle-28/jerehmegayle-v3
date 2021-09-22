@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @import 'fonts.css';
+@import 'preloader.css';
+@import 'animations.css';
+@import 'customScrollStyle.css';
 
 html,
 body {
@@ -18,4 +21,41 @@ a {
 
 * {
   box-sizing: border-box;
+}
+/*
+==============================
+Navbar
+==============================
+*/
+.navBar {
+  animation-delay: 3.6s;
+}
+/*
+==============================
+Hero
+==============================
+*/
+.hero {
+  transition: height 2s ease-in;
+}
+.hero-avatar {
+  animation-delay: 3.4s;
+}
+/*
+==============================
+Slider overrides
+==============================
+*/
+.slick-slider .slick-track {
+  margin-left: 0 !important;
+}
+.slick-dots li button:before {
+  color: #ccc !important;
+}
+.slick-dots li.slick-active button:before {
+  color: #3370ff !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  display: none;
 }

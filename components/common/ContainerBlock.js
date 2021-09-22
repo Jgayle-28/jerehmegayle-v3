@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import NavBar from './NavBar';
-import Footer from './Footer';
+import { motion } from 'framer-motion';
+import { transitionVariants } from '@constants/helperData';
 
 const ContainerBlock = ({ children, ...customMeta }) => {
   const router = useRouter();
 
   const meta = {
-    title: 'Jerehme Gayle - Developer, Husband, Father of 6',
+    title: 'Jerehme Gayle - Developer, Designer, Learner, Creator',
     description: `I've been developing websites for 5 years straight. Get in touch with me to know more.`,
     image: '/img/avatar.jpeg',
     type: 'website',
@@ -42,11 +42,15 @@ const ContainerBlock = ({ children, ...customMeta }) => {
           <meta property='article:published_time' content={meta.date} />
         )}
       </Head>
-      <main className='dark:bg-gray-800 w-full'>
-        <NavBar />
+      <motion.main
+        variants={transitionVariants} // Pass the variant object into Framer Motion
+        // initial='hidden' // Set the initial state to variants.hidden
+        // animate='enter' // Animated state to variants.enter
+        exit='exit' // Exit state (used later) to variants.exit
+        transition={{ type: 'linear' }} // Set the transition to linear
+        className='dark:bg-gray-800 w-full'>
         <div>{children}</div>
-        <Footer />
-      </main>
+      </motion.main>
     </div>
   );
 };
