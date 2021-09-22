@@ -13,8 +13,6 @@ export default function FavoriteProjects({ finishedAnimation }) {
   const { height, width } = useWindowDimensions();
   const controls = useAnimation();
 
-  console.log('initialLoad :>> ', initialLoad);
-
   const [userScrollAmount, setUserScrollAmount] = useState(0);
   const [headerOffset, setHeaderOffset] = useState(0);
   const [headerOnScreen, setHeaderOnScreen] = useState(false);
@@ -110,10 +108,10 @@ export default function FavoriteProjects({ finishedAnimation }) {
                     alt='Project Image'
                     className='transform hover:scale-125 transition duration-2000 ease-out'
                   />
-                  <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
+                  <h1 className='hidden absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
                     {projects[0].title}
                   </h1>
-                  <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
+                  <h1 className='hidden absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
                     01
                   </h1>
                 </div>
@@ -129,17 +127,17 @@ export default function FavoriteProjects({ finishedAnimation }) {
                     alt='Project Image'
                     className='transform hover:scale-125 transition duration-2000 ease-out'
                   />
-                  <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
+                  <h1 className='hidden absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
                     {projects[1].title}
                   </h1>
-                  <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
+                  <h1 className='hidden absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
                     02
                   </h1>
                 </div>
               </a>
               {/* Single card */}
               <a
-                href='https://manuarora.in'
+                // href='https://manuarora.in'
                 className='w-full block col-span-2 sm:col-span-2  object-cover'>
                 <div className='relative overflow-hidden shadow-2xl'>
                   {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
@@ -148,10 +146,10 @@ export default function FavoriteProjects({ finishedAnimation }) {
                     alt='Project Image'
                     className='transform hover:scale-125 transition duration-2000 ease-out object-cover shadow-2xl'
                   />
-                  <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
+                  <h1 className='hidden absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
                     {projects[2].title}
                   </h1>
-                  <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
+                  <h1 className='hidden absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
                     03
                   </h1>
                 </div>
