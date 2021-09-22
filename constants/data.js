@@ -18,16 +18,33 @@ const userData = {
         '/img/stemuli/student-dash.png',
         '/img/stemuli/volunteer-dash.png',
       ],
-      techStack: [],
-      about: '',
+      techStack: [
+        '/img/techIcons/next.svg',
+        '/img/techIcons/react.svg',
+        '/img/techIcons/material-ui.svg',
+        '/img/techIcons/antD.svg',
+        '/img/techIcons/tailwind.svg',
+        '/img/techIcons/redux.svg',
+      ],
+      about:
+        'At STEMuli I worked as a Front End Engineer leading one of the front end teams. We built specialized learning software that connects teacher & mentors with students. Handling everything from live class interactions, grade books, to completing assignments & quizzes.',
     },
     {
       title: 'Fly Fish Finder',
       link: 'https://placeholdertech.in',
       imgUrl: '/img/fff/fff.jpg',
-      projectImages: ['/img/fff/fff.jpg', '/img/fff/fff-after.png'],
-      techStack: [],
-      about: '',
+      projectImages: [
+        '/img/fff/fff.jpg',
+        '/img/fff/landingPage.png',
+        '/img/fff/courseTemplate.png',
+      ],
+      techStack: [
+        '/img/techIcons/next.svg',
+        '/img/techIcons/react.svg',
+        '/img/techIcons/tailwind.svg',
+      ],
+      about:
+        'On this project I was brought in to set up a brand identity, Redesign the UI, integrate APIs, create a template for courses, and clean up the existing code base. This was a fun and exciting project to work and helped me sharpen my skills with Next.js, React, and tailwind.',
     },
     {
       title: 'Miranda',
@@ -40,8 +57,14 @@ const userData = {
         '/img/miranda/est-services.png',
         '/img/miranda/est-finalize.png',
       ],
-      techStack: [],
-      about: '',
+      techStack: [
+        '/img/techIcons/react.svg',
+        '/img/techIcons/material-ui.svg',
+        '/img/techIcons/redux.svg',
+        '/img/techIcons/mongo.svg',
+      ],
+      about:
+        'I was tasked to create an all in 1 web app for a moving company. I developed a robust data table that kept track of every customer and connected to that data table was a custom coded move calculator that kept track of inventory, estimated time it would take for the move, and allowed for options to add supplies, etc... This was all supplied data from a MongoDb Database.',
     },
   ],
   about: {

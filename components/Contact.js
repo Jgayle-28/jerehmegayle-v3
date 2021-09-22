@@ -84,7 +84,7 @@ export default function Contact() {
         variants={sectionVariants}
         initial='hidden'
         animate='visible'
-        className='relative z-10 rounded-md shadow-md p-4 md:p-10 lg:p-20 max-w-6xl mx-auto mb-20 bg-[#eceff1] dark:bg-gray-900  z-0'>
+        className='relative z-10 rounded-md shadow-md p-4 md:p-10 lg:p-20 max-w-6xl mx-auto mb-20 bg-brandGray dark:bg-gray-900  z-0'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <div className='md:ml-4'>
             <header className=''>
@@ -95,7 +95,7 @@ export default function Contact() {
                 Fill in the details and I'll get back to you as soon as I can.
               </p>
             </header>
-            <div className='icons-container inline-flex flex-col my-20'>
+            <div className='icons-container inline-flex flex-col mt-10 mb-5'>
               <a
                 target='_blank'
                 rel='noopener noreferrer'
@@ -107,7 +107,7 @@ export default function Contact() {
                 </p>
               </a>
             </div>
-            <div className='social-icons flex flex-row space-x-8'>
+            <div className='social-icons flex flex-row space-x-2'>
               <a
                 target='_blank'
                 rel='noopener noreferrer'
@@ -176,7 +176,7 @@ export default function Contact() {
 const Notification = ({ type, msg }) => {
   return (
     <div
-      className={`rounded-md p-2 mt-2 mx-4 ${
+      className={`rounded-md p-3 mt-2 mx-4 ${
         type === 'ERROR' ? 'bg-[#ec407a]' : 'bg-[#1de9b6]'
       }`}>
       <span className='font-light text-sm'>{msg}</span>

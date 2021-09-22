@@ -5,9 +5,8 @@ import useWindowDimensions from '@hooks/useWindowDimensions';
 import BoxArrowOutRight from 'icons/BoxArrowOutRight';
 import LandingSectionHeader from './common/LandingSectionHeader';
 
-export default function Testimonials({ repositories }) {
-  const headerRef = useRef();
-  const [repos, setRepos] = useState([]);
+export default function Testimonials() {
+  const testHeaderRef = useRef();
   const { height, width } = useWindowDimensions();
 
   const controls = useAnimation();
@@ -16,38 +15,14 @@ export default function Testimonials({ repositories }) {
   const [headerOffset, setHeaderOffset] = useState(0);
   const [headerOnScreen, setHeaderOnScreen] = useState(false);
 
-  useEffect(async () => {
-    if (repositories) {
-      let newRepos = [];
-      repositories.map((repo) => {
-        switch (repo.name) {
-          case 'Miranda-Moves-Dash':
-          case 'Portfolio-v2':
-          case 'checkmate':
-          case 'GH-Challenges':
-            newRepos.push(repo);
-            break;
-          case 'contactmanager_redux':
-            newRepos.splice(2, 0, repo);
-            break;
-          case 'jerehmegayle-v3':
-            newRepos.unshift(repo);
-            break;
-          default:
-            break;
-        }
-      });
-      setRepos(newRepos);
-    }
-  }, []);
-
   useEffect(() => {
     // let elem = document.getElementById('code-header');
     // let rect = elem.getBoundingClientRect();
-    // console.log('rect :>> ', rect);
+    // console.log('rect :>> ', rect.bottom);
     // setHeaderOffset(rect.top);
-    const { offsetTop } = headerRef.current;
-    setHeaderOffset(offsetTop + 515);
+    const { offsetTop } = testHeaderRef.current;
+    // console.log('offsetTop :>> ', offsetTop);
+    setHeaderOffset(offsetTop + 1030);
   }, []);
 
   // Controls event listener for scroll / sticky nav
@@ -88,22 +63,19 @@ export default function Testimonials({ repositories }) {
   }, [headerOnScreen]);
 
   return (
-    <section className='bg-[#eceff1] -mt-40 dark:bg-gray-900 pb-40 px-5'>
+    <section className='bg-[#F6F8F9] -mt-40 dark:bg-gray-900 pb-40 px-5'>
       <div className='max-w-6xl mx-auto mb-6'>
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -40 }}
           animate={controls}
-          id='code-header'
-          ref={headerRef}
-          className='flex flex-wrap flex-row md:justify-between items-center md:pt-40 mx-0 md:mx-10'>
+          id='testimonial-header'
+          ref={testHeaderRef}
+          className='flex flex-wrap flex-row md:justify-between items-center md:pt-24 mx-0 md:mx-10'>
           <LandingSectionHeader headerName='Kind Words' />
-          {/* <h1 className='text-6xl lg:text-9xl max-w-lg font-bold text-black my-20 md:my-0 md:text-black dark:text-gray-600 text-center lg:text-left'>
-            Kind Words
-          </h1> */}
         </motion.div>
       </div>
       <motion.div
-        initial={{ opacity: 0, x: -80 }}
+        initial={{ opacity: 0, x: 80 }}
         animate={controls}
         id='code-header'
         className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto lg:-mt-4 gap-y-20'>

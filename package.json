@@ -1,6 +1,14 @@
 {
-  "name": "nextjs",
+  "name": "portfolio",
+  "author": "Jerehme Gayle",
   "version": "0.1.0",
+  "contributors": [
+    {
+      "name": "Jerehme Gayle",
+      "url": "https://jerehmegayle.com",
+      "email": "jerehme.gayle@gmail.com"
+    }
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",

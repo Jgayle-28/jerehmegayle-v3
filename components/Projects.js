@@ -18,7 +18,7 @@ export default function Projects() {
         </motion.h1>
       </div>
       {/* Grid starts here */}
-      <div className='bg-[#F1F1F1] dark:bg-gray-900 px-5'>
+      <div className='bg-brandGray dark:bg-gray-900 px-5'>
         <motion.div
           variants={sectionVariants}
           initial='hidden'

@@ -26,10 +26,11 @@ const variants = {
   hidden: { opacity: 0, y: 80 },
 };
 
-export default function Hero() {
+export default function Hero({ initialLoad, finishedAnimation }) {
   return (
     <div
-      className={`h-screen md:h-full flex flex-wrap justify-center items-start md:overflow-hidden w-full px-5 md:px-7 lg:px-20 mb-10 md:mb-0`}>
+      className={`h-screen md:h-full flex flex-wrap justify-center items-start md:overflow-hidden w-full px-5 md:px-7 lg:px-20 mb-10 md:mb-0`}
+      style={{ paddingTop: initialLoad && !finishedAnimation ? '132px' : '' }}>
       {/* Text container */}
       <div className='w-full md:w-1/2  text-center md:text-left lg:pt-10 z-50'>
         <RoughNotationGroup show={true}>
@@ -67,8 +68,8 @@ export default function Hero() {
           <div className='h-96 md:h-auto !w-full overflow-hidden '>
             <motion.img
               variants={variants}
-              initial='hidden'
-              animate='visible'
+              initial={initialLoad && 'hidden'}
+              animate={initialLoad && 'visible'}
               src={userData.avatarUrl}
               alt='avatar'
               className='shadow'
@@ -77,8 +78,8 @@ export default function Hero() {
 
           <motion.div
             variants={variants}
-            initial='hidden'
-            animate='visible'
+            initial={initialLoad && 'hidden'}
+            animate={initialLoad && 'visible'}
             className='flex flex-row justify-between mt-4'>
             <div className='flex flex-row space-x-4'>
               <ArrowAngleLeftUp />

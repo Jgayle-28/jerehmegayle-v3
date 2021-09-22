@@ -3,7 +3,7 @@ import '../../styles/Home.module.css';
 
 const Loader = () => {
   return (
-    <div className='preloader'>
+    <div className='preloader bg-white dark:bg-gray-800'>
       <div className='folding-cube'>
         <div className='cube1 cube'></div>
         <div className='cube2 cube'></div>

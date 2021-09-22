@@ -15,12 +15,12 @@ export default function Experience() {
           Experience
         </motion.h1>
       </div>
-      <div className='bg-[#F1F1F1] dark:bg-gray-900 -mt-4'>
+      <div className='bg-brandGray dark:bg-gray-900 -mt-4'>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
           animate='visible'
-          className='z-0 grid grid-cols-1 dark:bg-gray-900 max-w-xl mx-auto pt-20'>
+          className='z-0 grid grid-cols-1 max-w-xl mx-auto pt-20'>
           {/* Experience card */}
           {userData.experience.map((exp, idx) => (
             <>

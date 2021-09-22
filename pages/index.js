@@ -38,20 +38,22 @@ export default function Home({ repositories }) {
   };
 
   const demoAsyncCall = () => {
-    return new Promise((resolve) => setTimeout(() => resolve(), 500));
-    // return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
   };
 
   return (
     <>
-      {isLoading ? (
+      {initialLoad && isLoading ? (
         <Loader />
       ) : (
         <ContainerBlock
           title='Jerehme Gayle - Developer, Husband, Father of 6'
           description={`I've been developing websites for 5 years straight. Get in touch with me to know more.`}>
           <>
-            <Hero />
+            <Hero
+              initialLoad={initialLoad}
+              finishedAnimation={finishedAnimation}
+            />
             <FavoriteProjects finishedAnimation={finishedAnimation} />
             <LatestCode repositories={repositories} />
             <Testimonials />

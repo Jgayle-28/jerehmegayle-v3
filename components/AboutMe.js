@@ -16,7 +16,7 @@ export default function AboutMe() {
           About Me
         </motion.h1>
       </div>
-      <div className='bg-[#F1F1F1] -mt-10 dark:bg-gray-900 px-5 '>
+      <div className='bg-[#F6F8F9] -mt-10 dark:bg-gray-900 px-5 '>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
@@ -40,7 +40,7 @@ export default function AboutMe() {
           </p>
         </motion.div>
       </div>
-      <div className='bg-[#F1F1F1] dark:bg-gray-900 px-4'>
+      <div className='bg-[#F6F8F9] dark:bg-gray-900 px-4'>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
@@ -163,6 +163,10 @@ export default function AboutMe() {
               />
               <img
                 src='https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png'
+                className='h-20 w-20 mx-4 my-4'
+              />
+              <img
+                src='/img/techIcons/tailwind.svg'
                 className='h-20 w-20 mx-4 my-4'
               />
               <img

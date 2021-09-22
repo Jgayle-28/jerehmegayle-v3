@@ -88,14 +88,14 @@ export default function LatestCode({ repositories }) {
   }, [headerOnScreen]);
 
   return (
-    <section className='bg-[#eceff1] -mt-40 dark:bg-gray-900 pb-40 px-5'>
+    <section className='bg-brandGray -mt-40 dark:bg-gray-900 pb-40 px-5'>
       <div className='max-w-6xl mx-auto'>
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -40 }}
           animate={controls}
           id='code-header'
           ref={headerRef}
-          className='flex flex-wrap flex-row justify-start md:justify-between items-center md:pt-40 mx-0 md:mx-10'>
+          className='flex flex-wrap flex-row justify-start md:justify-between items-center md:pt-24 mx-0 md:mx-10'>
           <LandingSectionHeader headerName='Latest Code' />
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
             <a
@@ -110,7 +110,7 @@ export default function LatestCode({ repositories }) {
         </motion.div>
       </div>
       <motion.div
-        initial={{ opacity: 0, x: -80 }}
+        initial={{ opacity: 0, x: 80 }}
         animate={controls}
         id='code-header'
         className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-10 lg:-mt-10 gap-y-20'>

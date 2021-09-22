@@ -1,26 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 import BoxArrowOutRight from 'icons/BoxArrowOutRight';
 import LandingSectionHeader from './common/LandingSectionHeader';
+import AppContext from 'context/appContext';
+import userData from '@constants/data';
 
 export default function FavoriteProjects({ finishedAnimation }) {
+  const appContext = useContext(AppContext);
+  const { initialLoad } = appContext;
   const { height, width } = useWindowDimensions();
   const controls = useAnimation();
+
+  console.log('initialLoad :>> ', initialLoad);
 
   const [userScrollAmount, setUserScrollAmount] = useState(0);
   const [headerOffset, setHeaderOffset] = useState(0);
   const [headerOnScreen, setHeaderOnScreen] = useState(false);
-  // console.log('userScrollAmount :>> ', userScrollAmount);
-  // console.log('headerOnScreen :>> ', headerOnScreen);
-  // console.log('headerOffset :>> ', headerOffset);
+  const [projects, setProjects] = useState(null);
 
   useEffect(() => {
     let elem = document.getElementById('project-header');
     let rect = elem.getBoundingClientRect();
-    // console.log('rect :>> ', rect);
     setHeaderOffset(height - rect.top);
+  }, []);
+
+  useEffect(() => {
+    if (userData) setProjects(userData.projects);
   }, []);
 
   // Controls event listener for scroll / sticky nav
@@ -53,7 +60,7 @@ export default function FavoriteProjects({ finishedAnimation }) {
         opacity: 1,
         transition: {
           duration: 1.6,
-          delay: 0.1,
+          delay: 0.3,
           ease: 'anticipate',
         },
       });
@@ -61,19 +68,20 @@ export default function FavoriteProjects({ finishedAnimation }) {
   }, [headerOnScreen]);
 
   const getCurrentClass = () => {
-    if (finishedAnimation) return '-mt-40 fade-in-bottom transition ease';
-    return 'mt-0';
+    // if (initialLoad) return '-mt-40 slide-to-top-delay';
+    return '-mt-40 slide-to-top-delay';
+    // return '-mt-40 slide-to-top';
   };
 
   return (
     <div
-      className={`bg-[#eceff1] dark:bg-gray-900 ${getCurrentClass()}duration-2000 px-5  pt-0 md:pt-40 md:pt-0`}>
+      className={`bg-brandGray dark:bg-gray-900 ${getCurrentClass()} px-5  pt-0 md:pt-40 md:pt-0`}>
       <div className='max-w-6xl mx-auto'>
         <motion.header
           initial={{ opacity: 0, x: -40 }}
           animate={controls}
           id='project-header'
-          className='flex flex-row flex-wrap justify-start md:justify-between md:items-center pt-20 md:pt-40 mx-0 md:mx-10 my-0'>
+          className={`flex flex-row flex-wrap justify-start md:justify-between md:items-center pt-20 md:pt-40 mx-0 md:mx-10 my-0`}>
           <LandingSectionHeader headerName='Favorite Projects' />
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
             <Link href='/projects'>
@@ -87,65 +95,69 @@ export default function FavoriteProjects({ finishedAnimation }) {
 
         {/* Grid starts here */}
         <motion.div
-          initial={{ opacity: 0, x: -80 }}
+          initial={{ opacity: 0, x: 80 }}
           animate={controls}
-          className={`grid md:grid-cols-3 gap-8 lg:-mt-2 pb-40`}>
-          {/* Single card */}
-          <a
-            href='https://tailwindmasterkit.com'
-            className='w-full block col-span-3 shadow-2xl'>
-            <div className='relative overflow-hidden'>
-              <img
-                src='/img/tmk.jpg'
-                alt='portfolio'
-                className='transform hover:scale-125 transition duration-2000 ease-out'
-              />
-              <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
-                Tailwind Master Kit
-              </h1>
-              <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
-                01
-              </h1>
-            </div>
-          </a>
-          {/* Single card */}
-          <a
-            href='https://placeholdertech.in'
-            className='w-full block col-span-3  sm:col-span-2 shadow-2xl'>
-            <div className='relative overflow-hidden'>
-              {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
-              <img
-                src='/img/placeholdertech.png'
-                alt='portfolio'
-                className='transform hover:scale-125 transition duration-2000 ease-out'
-              />
-              <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
-                PlaceholderTech
-              </h1>
-              <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
-                02
-              </h1>
-            </div>
-          </a>
-          {/* Single card */}
-          <a
-            href='https://manuarora.in'
-            className='w-full block col-span-3 sm:col-span-1  object-cover'>
-            <div className='relative overflow-hidden shadow-2xl'>
-              {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
-              <img
-                src='/img/portfolio.png'
-                alt='portfolio'
-                className='transform hover:scale-125 transition duration-2000 ease-out object-cover shadow-2xl'
-              />
-              <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
-                Portfolio
-              </h1>
-              <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
-                03
-              </h1>
-            </div>
-          </a>
+          className={`grid md:grid-cols-4 gap-8 lg:-mt-2 pb-40`}>
+          {projects !== null && (
+            <>
+              {/* Single card */}
+              <a
+                // href='https://tailwindmasterkit.com'
+                className='w-full block col-span-4 shadow-2xl'>
+                <div className='relative overflow-hidden'>
+                  <img
+                    src={projects[0].imgUrl}
+                    alt='Project Image'
+                    className='transform hover:scale-125 transition duration-2000 ease-out'
+                  />
+                  <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
+                    {projects[0].title}
+                  </h1>
+                  <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
+                    01
+                  </h1>
+                </div>
+              </a>
+              {/* Single card */}
+              <a
+                // href='https://placeholdertech.in'
+                className='w-full block col-span-2  sm:col-span-2 shadow-2xl'>
+                <div className='relative overflow-hidden'>
+                  {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
+                  <img
+                    src={projects[1].imgUrl}
+                    alt='Project Image'
+                    className='transform hover:scale-125 transition duration-2000 ease-out'
+                  />
+                  <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
+                    {projects[1].title}
+                  </h1>
+                  <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
+                    02
+                  </h1>
+                </div>
+              </a>
+              {/* Single card */}
+              <a
+                href='https://manuarora.in'
+                className='w-full block col-span-2 sm:col-span-2  object-cover'>
+                <div className='relative overflow-hidden shadow-2xl'>
+                  {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
+                  <img
+                    src={projects[2].imgUrl}
+                    alt='Project Image'
+                    className='transform hover:scale-125 transition duration-2000 ease-out object-cover shadow-2xl'
+                  />
+                  <h1 className='absolute top-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary rounded-md px-2'>
+                    {projects[2].title}
+                  </h1>
+                  <h1 className='absolute bottom-10 left-10 text-gray-50 font-bold text-xl bg-brandPrimary py-1 px-2 rounded-md'>
+                    03
+                  </h1>
+                </div>
+              </a>
+            </>
+          )}
         </motion.div>
       </div>
     </div>

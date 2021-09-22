@@ -63,3 +63,37 @@ Multi use animations & Classes
     opacity: 1;
   }
 }
+/**
+ * ----------------------------------------
+ *  slide-in-to-top
+ * ----------------------------------------
+ */
+.slide-to-top-delay {
+  -webkit-animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.4s
+    both;
+  animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.4s both;
+}
+.slide-to-top {
+  -webkit-animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
