@@ -66,6 +66,30 @@ const userData = {
       about:
         'I was tasked to create an all in 1 web app for a moving company. I developed a robust data table that kept track of every customer and connected to that data table was a custom coded move calculator that kept track of inventory, estimated time it would take for the move, and allowed for options to add supplies, etc... This was all supplied data from a MongoDb Database.',
     },
+    {
+      title: 'Stone',
+      link: '',
+      imgUrl: '/img/stone/stone-mockup.jpg',
+      projectImages: [
+        '/img/stone/stone-mockup.jpg',
+        '/img/stone/ss1.png',
+        '/img/stone/ss2.png',
+        '/img/stone/ss3.png',
+      ],
+      techStack: [],
+      about: `Soooo.... This was not exactly a development project, but more of a personal mission. Every Ninja has his fine tuned weapon and I needed mine 🙃. This is where stone came about, I have always wanted to have my own coding theme and I decided it was time to pull the trigger. Feel free to check it out in the 
+        <a
+          class='text-brandPrimary border-b-2 border-brandPrimary dark:border-brandPrimary font-bold dark:text-brandPrimary'
+          target='_blank'
+          href='https://marketplace.visualstudio.com/items?itemName=JerehmeGayle.Stone'>
+          Market Place
+        </a> OR 
+        <a
+          class='text-brandPrimary border-b-2 border-brandPrimary dark:border-brandPrimary font-bold dark:text-brandPrimary'
+          target='_blank' href='https://github.com/Jgayle-28/Stone'>
+          collaborate with me
+        </a> on this effort`,
+    },
   ],
   about: {
     title: 'I like to play where ',
@@ -95,7 +119,7 @@ const userData = {
     },
   ],
   resumeUrl:
-    'https://drive.google.com/file/d/0B5f6Zs42C2JnckI0TXo5YXNSNEk5TEJYYklibDg3NEowSFlr/view?usp=sharing&resourcekey=0-Zbyw5dh24HSgVWjfyuoSIg',
+    'https://drive.google.com/file/d/1BZ6st2kmVRMS3NrTsnrL4PHa5DHOHn6_/view?usp=sharing',
   socialLinks: {
     linkedin: 'https://linkedin.com/in/jerehme-gayle',
     instagram: 'https://instagram.com/jerehme.gayle/',

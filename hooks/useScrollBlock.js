@@ -20,12 +20,9 @@ export default function useScrollBlock() {
         window.getComputedStyle(body).getPropertyValue('padding-right')
       ) || 0;
 
-    /**
-     * 1. Fixes a bug in iOS and desktop Safari whereby setting
-     *    `overflow: hidden` on the html/body does not prevent scrolling.
-     * 2. Fixes a bug in desktop Safari where `overflowY` does not prevent
-     *    scroll if an `overflow-x` style is also applied to the body.
-     */
+    //* 1. Fixes a bug in iOS and desktop Safari whereby setting `overflow: hidden` on the html/body does not prevent scrolling.
+    //* 2. Fixes a bug in desktop Safari where `overflowY` does not prevent scroll if an `overflow-x` style is also applied to the body.
+
     html.style.position = 'relative'; /* [1] */
     html.style.overflow = 'hidden'; /* [2] */
     body.style.position = 'relative'; /* [1] */
