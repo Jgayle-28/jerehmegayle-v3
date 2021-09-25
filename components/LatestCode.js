@@ -31,6 +31,7 @@ export default function LatestCode({ repositories }) {
             newRepos.splice(2, 0, repo);
             break;
           case 'jerehmegayle-v3':
+          case 'Stone':
             newRepos.unshift(repo);
             break;
           default:
