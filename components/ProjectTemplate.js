@@ -89,26 +89,34 @@ export default function ProjectTemplate() {
           {project !== null && (
             <>
               {/* Technologies used */}
-              <p className='w-full mb-3 font-semibold text-black dark:text-white'>
-                Technologies Used:
-              </p>
-              <div className='bg-brandGray opacity-7 p-5 rounded-md shadow  mb-6'>
-                <div className='flex flex-wrap justify-center md:justify-start '>
-                  {project.techStack.map((item, i) => (
-                    <img
-                      key={i}
-                      src={item}
-                      alt='tech'
-                      className='mr-6 h-8 mb-6 md:mb-0'
-                    />
-                  ))}
-                </div>
-              </div>
+              {project.techStack.length > 0 && (
+                <>
+                  <p className='w-full mb-3 font-semibold text-black dark:text-white'>
+                    Technologies Used:
+                  </p>
+                  <div className='bg-brandGray opacity-7 p-5 rounded-md shadow  mb-6'>
+                    <div className='flex flex-wrap justify-center md:justify-start '>
+                      {project.techStack.map((item, i) => (
+                        <img
+                          key={i}
+                          src={item}
+                          alt='tech'
+                          className='mr-6 h-8 mb-6 md:mb-0'
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
               {/* About */}
               <p className='w-full mb-3 font-semibold text-black dark:text-white'>
                 Scope Of Work:
               </p>
-              <div className='w-full mb-6 tracking-wide'>{project.about}</div>
+              <div
+                className='w-full mb-6 tracking-wide'
+                dangerouslySetInnerHTML={{ __html: project.about }}>
+                {/* {project.about} */}
+              </div>
               {/* Image selector */}
               <div
                 className={`w-full mt-6 mb-3 ${
