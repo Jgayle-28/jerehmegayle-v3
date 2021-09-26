@@ -124,7 +124,7 @@ const userData = {
     linkedin: 'https://linkedin.com/in/jerehme-gayle',
     instagram: 'https://instagram.com/jerehme.gayle/',
     github: 'https://github.com/Jgayle-28',
-    // twitter: 'https://twitter.com/Jgayle28',
+    // twitter: 'https://twitter.com/jerehmeg',
     // facebook: 'https://facebook.com/',
   },
 };
