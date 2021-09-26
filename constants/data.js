@@ -75,6 +75,7 @@ const userData = {
         '/img/stone/ss1.png',
         '/img/stone/ss2.png',
         '/img/stone/ss3.png',
+        '/img/stone/ss4.png',
       ],
       techStack: [],
       about: `Soooo.... This was not exactly a development project, but more of a personal mission. Every Ninja has his fine tuned weapon and I needed mine 🙃. This is where stone came about, I have always wanted to have my own coding theme and I decided it was time to pull the trigger. Feel free to check it out in the 
@@ -124,7 +125,7 @@ const userData = {
     linkedin: 'https://linkedin.com/in/jerehme-gayle',
     instagram: 'https://instagram.com/jerehme.gayle/',
     github: 'https://github.com/Jgayle-28',
-    // twitter: 'https://twitter.com/Jgayle28',
+    // twitter: 'https://twitter.com/jerehmeg',
     // facebook: 'https://facebook.com/',
   },
 };
