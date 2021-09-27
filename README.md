@@ -1,11 +1,9 @@
 # Personal Portfolio & Website 
 <br/>
-<br/>
 
 ## Check it out at 
 
 - <a href='https://www.jerehmegayle.com' target='_blank'>https://www.jerehmegayle.com</a>
-<br/>
 <br/>
 
 ## Pages & Sections
@@ -17,7 +15,6 @@
 - Favorite Projects
 - Latest Code
 - Testimonials
-<br/>
 <br/>
 
 ## Techonologies & Features
