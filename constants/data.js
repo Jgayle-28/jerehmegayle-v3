@@ -96,7 +96,7 @@ const userData = {
     title: 'I like to play where ',
     subTitle: 'Code meets Design',
     description: [
-      `Hi there 👋, as you probably already know my name is Jerehme. But what you didn't know is that I can make a killer meatloaf! All jokes aside, I am truly passionate about designing and developing the web. I love creating things from scratch and bringing them to life with UI effects and animations creating a dynamic user experience. I have found my home in React and the MERN stack and am currently loving my in journey React Native.`,
+      `Hi there 👋, as you probably already know my name is Jerehme. But what you didn't know is that I can make a killer meatloaf! All jokes aside, I am truly passionate about designing and developing the web. I love creating things from scratch and bringing them to life with UI effects and animations creating a dynamic user experience. I have found my home in React and the MERN stack.`,
       `I enjoy creating user-friendly sleek and responsive websites/web applications using Next.js, React & Tailwind.  I am an adaptable self-motivated learner who believes in continual self-improvement and loves to learn new technologies. I enjoy working in fast-paced environments and being pushing my skills to the limits.   I am currently open to all creative opportunities.`,
       ,
     ],
