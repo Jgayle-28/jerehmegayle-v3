@@ -1,30 +1,33 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
 // Data
-import userData from '@constants/data';
-import { headerVariants, sectionVariants } from '@constants/helperData';
+import userData from '@constants/data'
+import { headerVariants, sectionVariants } from '@constants/helperData'
 
 export default function AboutMe() {
   return (
-    <section className='bg-white dark:bg-gray-800 '>
-      <div className='max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800'>
+    <section className='bg-white dark:bg-brandBlack'>
+      <div className='max-w-6xl mx-auto h-48 bg-white dark:bg-brandBlack'>
         <motion.h1
           variants={headerVariants}
           initial='hidden'
           animate='visible'
-          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'>
+          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'
+        >
           About Me
         </motion.h1>
       </div>
-      <div className='bg-[#F6F8F9] -mt-10 dark:bg-gray-900 px-5 '>
+      <div className='bg-[#F6F8F9] -mt-10 dark:bg-brandBlack px-5 '>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
           animate='visible'
-          className='text-container max-w-6xl mx-auto pt-20'>
+          className='text-container max-w-6xl mx-auto pt-20'
+        >
           <p
             className=' leading-loose text-2xl md:text-4xl font-semibold'
-            style={{ lineHeight: '3rem' }}>
+            style={{ lineHeight: '3rem' }}
+          >
             {userData.about.title}
             <span className='text-brandPrimary'>{userData.about.subTitle}</span>
           </p>{' '}
@@ -34,18 +37,20 @@ export default function AboutMe() {
               target='_blank'
               rel='noopener noreferrer'
               className='bg-brandPrimary rounded-md px-2 py-1 text-white'
-              href={userData.about.currentProjectUrl}>
+              href={userData.about.currentProjectUrl}
+            >
               {userData.about.currentProject} ✈️
             </a>
           </p>
         </motion.div>
       </div>
-      <div className='bg-[#F6F8F9] dark:bg-gray-900 px-4'>
+      <div className='bg-[#F6F8F9] dark:bg-brandBlack px-4'>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
           animate='visible'
-          className='pt-20 grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-y-20 gap-x-20'>
+          className='pt-20 grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-y-20 gap-x-20'
+        >
           {/* Social Buttons */}
           <div className='inline-flex flex-col'>
             <div>
@@ -58,7 +63,8 @@ export default function AboutMe() {
                   target='_blank'
                   rel='noopener noreferrer'
                   href={`mailto:${userData.email}`}
-                  className='text-brandPrimary border-b-2 border-brandPrimary dark:border-brandPrimary font-bold dark:text-brandPrimary'>
+                  className='text-brandPrimary border-b-2 border-brandPrimary dark:border-brandPrimary font-bold dark:text-brandPrimary'
+                >
                   E-mail
                 </a>{' '}
                 my way and I'll get back. I swear
@@ -74,7 +80,8 @@ export default function AboutMe() {
                 <a
                   href={userData.resumeUrl}
                   target='__blank'
-                  className='text-brandPrimary border-b-2 border-brandPrimary dark:border-brandPrimary font-bold dark:text-brandPrimary'>
+                  className='text-brandPrimary border-b-2 border-brandPrimary dark:border-brandPrimary font-bold dark:text-brandPrimary'
+                >
                   CV
                 </a>{' '}
                 and I'd love to work for you.
@@ -90,12 +97,14 @@ export default function AboutMe() {
                   return (
                     <div
                       key={link[1]}
-                      className='flex flex-row justify-start items-center'>
+                      className='flex flex-row justify-start items-center'
+                    >
                       <a
                         target='_blank'
                         rel='noopener noreferrer'
                         href={link[1]}
-                        className='capitalize flex flex-row items-center space-x-4 group'>
+                        className='capitalize flex flex-row items-center space-x-4 group'
+                      >
                         <div className='my-4'>&rarr;</div>
                         <p className='text-lg text-gray-500 font-mono relative overflow-hidden dark:text-gray-300'>
                           <span className='absolute h-0.5 w-full bg-gray-400 bottom-0 transform -translate-x-28 group-hover:translate-x-0 transition duration-300'></span>
@@ -103,7 +112,7 @@ export default function AboutMe() {
                         </p>
                       </a>
                     </div>
-                  );
+                  )
                 })}
             </div>
           </div>
@@ -112,7 +121,8 @@ export default function AboutMe() {
             {userData.about.description?.map((desc, idx) => (
               <p
                 key={idx}
-                className='text-xl text-gray-700 mb-4 dark:text-gray-300 '>
+                className='text-xl text-gray-700 mb-4 dark:text-gray-300 '
+              >
                 {desc}
               </p>
             ))}
@@ -178,5 +188,5 @@ export default function AboutMe() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

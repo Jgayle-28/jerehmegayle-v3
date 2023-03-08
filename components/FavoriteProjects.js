@@ -1,54 +1,54 @@
-import React, { useEffect, useState, useContext } from 'react';
-import Link from 'next/link';
-import { motion, useAnimation } from 'framer-motion';
-import useWindowDimensions from '@hooks/useWindowDimensions';
-import BoxArrowOutRight from 'icons/BoxArrowOutRight';
-import LandingSectionHeader from './common/LandingSectionHeader';
-import AppContext from 'context/appContext';
-import userData from '@constants/data';
+import React, { useEffect, useState, useContext } from 'react'
+import Link from 'next/link'
+import { motion, useAnimation } from 'framer-motion'
+import useWindowDimensions from '@hooks/useWindowDimensions'
+import BoxArrowOutRight from 'icons/BoxArrowOutRight'
+import LandingSectionHeader from './common/LandingSectionHeader'
+import AppContext from 'context/appContext'
+import userData from '@constants/data'
 
 export default function FavoriteProjects({ finishedAnimation }) {
-  const appContext = useContext(AppContext);
-  const { initialLoad } = appContext;
-  const { height, width } = useWindowDimensions();
-  const controls = useAnimation();
+  const appContext = useContext(AppContext)
+  const { initialLoad } = appContext
+  const { height, width } = useWindowDimensions()
+  const controls = useAnimation()
 
-  const [userScrollAmount, setUserScrollAmount] = useState(0);
-  const [headerOffset, setHeaderOffset] = useState(0);
-  const [headerOnScreen, setHeaderOnScreen] = useState(false);
-  const [projects, setProjects] = useState(null);
-
-  useEffect(() => {
-    let elem = document.getElementById('project-header');
-    let rect = elem.getBoundingClientRect();
-    setHeaderOffset(height - rect.top);
-  }, []);
+  const [userScrollAmount, setUserScrollAmount] = useState(0)
+  const [headerOffset, setHeaderOffset] = useState(0)
+  const [headerOnScreen, setHeaderOnScreen] = useState(false)
+  const [projects, setProjects] = useState(null)
 
   useEffect(() => {
-    if (userData) setProjects(userData.projects);
-  }, []);
+    let elem = document.getElementById('project-header')
+    let rect = elem.getBoundingClientRect()
+    setHeaderOffset(height - rect.top)
+  }, [])
+
+  useEffect(() => {
+    if (userData) setProjects(userData.projects)
+  }, [])
 
   // Controls event listener for scroll / sticky nav
   useEffect(() => {
     if (window !== undefined) {
-      window.addEventListener('scroll', handleScrollChange);
+      window.addEventListener('scroll', handleScrollChange)
     }
     return () => {
-      window.removeEventListener('scroll', handleScrollChange);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScrollChange)
+    }
+  }, [])
 
   useEffect(() => {
-    if (headerOnScreen === true) return;
+    if (headerOnScreen === true) return
     if (userScrollAmount > headerOffset) {
-      setHeaderOnScreen(true);
+      setHeaderOnScreen(true)
     }
-  }, [userScrollAmount]);
+  }, [userScrollAmount])
 
   const handleScrollChange = () => {
-    const scrollAmount = window.scrollY;
-    setUserScrollAmount(scrollAmount);
-  };
+    const scrollAmount = window.scrollY
+    setUserScrollAmount(scrollAmount)
+  }
 
   // Animates header in
   useEffect(() => {
@@ -61,25 +61,27 @@ export default function FavoriteProjects({ finishedAnimation }) {
           delay: 0.3,
           ease: 'anticipate',
         },
-      });
+      })
     }
-  }, [headerOnScreen]);
+  }, [headerOnScreen])
 
   const getCurrentClass = () => {
     // if (initialLoad) return '-mt-40 slide-to-top-delay';
-    return '-mt-40 slide-to-top-delay';
+    return '-mt-40 slide-to-top-delay'
     // return '-mt-40 slide-to-top';
-  };
+  }
 
   return (
     <div
-      className={`bg-brandGray dark:bg-gray-900 ${getCurrentClass()} px-5  pt-0 md:pt-40 md:pt-0`}>
+      className={`bg-brandGray dark:bg-brandBlack ${getCurrentClass()} px-5  pt-0 md:pt-40 md:pt-0`}
+    >
       <div className='max-w-6xl mx-auto'>
         <motion.header
           initial={{ opacity: 0, x: -40 }}
           animate={controls}
           id='project-header'
-          className={`flex flex-row flex-wrap justify-start md:justify-between md:items-center pt-20 md:pt-40 mx-0 md:mx-10 my-0`}>
+          className={`flex flex-row flex-wrap justify-start md:justify-between md:items-center pt-20 md:pt-40 mx-0 md:mx-10 my-0`}
+        >
           <LandingSectionHeader headerName='Favorite Projects' />
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
             <Link href='/projects'>
@@ -95,13 +97,15 @@ export default function FavoriteProjects({ finishedAnimation }) {
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           animate={controls}
-          className={`grid md:grid-cols-4 gap-8 lg:-mt-2 pb-40`}>
+          className={`grid md:grid-cols-4 gap-8 lg:-mt-2 pb-40`}
+        >
           {projects !== null && (
             <>
               {/* Single card */}
               <a
                 // href='https://tailwindmasterkit.com'
-                className='w-full block col-span-4 shadow-2xl'>
+                className='w-full block col-span-4 shadow-2xl'
+              >
                 <div className='relative overflow-hidden'>
                   <img
                     src={projects[0].imgUrl}
@@ -119,7 +123,8 @@ export default function FavoriteProjects({ finishedAnimation }) {
               {/* Single card */}
               <a
                 // href='https://placeholdertech.in'
-                className='w-full block col-span-2  sm:col-span-2 shadow-2xl'>
+                className='w-full block col-span-2  sm:col-span-2 shadow-2xl'
+              >
                 <div className='relative overflow-hidden'>
                   {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
                   <img
@@ -138,7 +143,8 @@ export default function FavoriteProjects({ finishedAnimation }) {
               {/* Single card */}
               <a
                 // href='https://manuarora.in'
-                className='w-full block col-span-2 sm:col-span-2  object-cover'>
+                className='w-full block col-span-2 sm:col-span-2  object-cover'
+              >
                 <div className='relative overflow-hidden shadow-2xl'>
                   {/* <div className="overlay absolute inset-0 bg-black bg-opacity-70 z-10"></div> */}
                   <img
@@ -159,5 +165,5 @@ export default function FavoriteProjects({ finishedAnimation }) {
         </motion.div>
       </div>
     </div>
-  );
+  )
 }

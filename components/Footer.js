@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import Socials from './common/Socials';
-import AppContext from 'context/appContext';
+import React, { useContext } from 'react'
+import Socials from './common/Socials'
+import AppContext from 'context/appContext'
 
 export default function Footer() {
-  const appContext = useContext(AppContext);
-  const { initialLoad } = appContext;
+  const appContext = useContext(AppContext)
+  const { initialLoad } = appContext
   return (
     <>
       {!initialLoad && (
-        <div className='bg-brandGray dark:bg-gray-900'>
+        <div className='bg-brandGray dark:bg-brandBlack'>
           <div className='max-w-6xl  mx-auto px-4 py-10 md:py-20'>
             <div className='h-0.5 w-full bg-white dark:bg-gray-700'></div>
             <div className='flex flex-col space-y-4 md:space-y-0 md:flex-row justify-center md:justify-between items-center mt-8'>
@@ -19,7 +19,8 @@ export default function Footer() {
                   <span className='inline-block transform hover:scale-110 hover:-rotate-3 transition duration-300'>
                     <a
                       className='hover:bg-brandPrimary rounded-md px-2 py-1  hover:text-gray-50'
-                      href='/'>
+                      href='/'
+                    >
                       Jerehme Gayle
                     </a>
                   </span>
@@ -37,5 +38,5 @@ export default function Footer() {
         </div>
       )}
     </>
-  );
+  )
 }

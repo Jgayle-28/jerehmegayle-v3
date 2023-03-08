@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
-import Link from 'next/link';
-import NavBarLinks from './NavBarLinks';
-import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
-import AppContext from 'context/appContext';
+import React, { useEffect, useState, useContext } from 'react'
+import Link from 'next/link'
+import NavBarLinks from './NavBarLinks'
+import { useTheme } from 'next-themes'
+import { motion } from 'framer-motion'
+import AppContext from 'context/appContext'
 // Icons
-import userData from '@constants/data';
-import Socials from '../common/Socials';
+import userData from '@constants/data'
+import Socials from '../common/Socials'
 
 const variants = {
   visible: {
@@ -25,19 +25,19 @@ const variants = {
     },
   },
   hidden: { opacity: 0, y: -80 },
-};
+}
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme()
 
-  const appContext = useContext(AppContext);
-  const { initialLoad } = appContext;
+  const appContext = useContext(AppContext)
+  const { initialLoad } = appContext
 
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   return (
     <>
@@ -46,8 +46,9 @@ export default function Navbar() {
           variants={variants}
           initial={'hidden'} //Stops animation on every load
           animate={'visible'} //Stops animation on every load
-          className='bg-white dark:bg-gray-800'>
-          <div className='max-w-6xl mx-auto px-4 py-10 lg:py-10 bg-white dark:bg-gray-800'>
+          className='bg-white dark:bg-brandBlack'
+        >
+          <div className='max-w-6xl mx-auto px-4 py-10 lg:py-10 bg-white dark:bg-brandBlack'>
             <div className='flex md:flex-row justify-between items-center '>
               {/* Logo / Home / Text */}
               <div className='flex flex-col'>
@@ -76,14 +77,16 @@ export default function Navbar() {
                   aria-label='Toggle Dark Mode'
                   type='button'
                   className='w-10 h-10 p-3 rounded focus:outline-none'
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                >
                   {mounted && (
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 24 24'
                       fill='currentColor'
                       stroke='currentColor'
-                      className='w-4 h-4 text-yellow-500 dark:text-yellow-500'>
+                      className='w-4 h-4 text-yellow-500 dark:text-yellow-500'
+                    >
                       {theme === 'dark' ? (
                         <path
                           strokeLinecap='round'
@@ -112,5 +115,5 @@ export default function Navbar() {
         </motion.div>
       )}
     </>
-  );
+  )
 }

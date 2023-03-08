@@ -10,7 +10,7 @@ Preloader CSS
   z-index: 99999;
 }
 .preloader p {
-  color: #3370ff;
+  color: #fff;
 }
 
 .preloader .folding-cube {
@@ -41,7 +41,7 @@ Preloader CSS
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #3370ff;
+  background-color: #fff;
   -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
   animation: sk-foldCubeAngle 2.4s infinite linear both;
   -webkit-transform-origin: 100% 100%;

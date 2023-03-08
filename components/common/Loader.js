@@ -1,9 +1,9 @@
-import React from 'react';
-import '../../styles/Home.module.css';
+import React from 'react'
+import '../../styles/Home.module.css'
 
 const Loader = () => {
   return (
-    <div className='preloader bg-white dark:bg-gray-800'>
+    <div className='preloader bg-white dark:bg-brandBlack'>
       <div className='folding-cube'>
         <div className='cube1 cube'></div>
         <div className='cube2 cube'></div>
@@ -11,7 +11,7 @@ const Loader = () => {
         <div className='cube3 cube'></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader

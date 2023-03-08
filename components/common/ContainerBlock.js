@@ -1,11 +1,11 @@
-import React from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
-import { transitionVariants } from '@constants/helperData';
+import React from 'react'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+import { transitionVariants } from '@constants/helperData'
 
 const ContainerBlock = ({ children, ...customMeta }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   const meta = {
     title: 'Jerehme Gayle - Developer, Designer, Learner, Creator',
@@ -13,7 +13,7 @@ const ContainerBlock = ({ children, ...customMeta }) => {
     image: '/img/avatar.jpeg',
     type: 'website',
     ...customMeta,
-  };
+  }
   return (
     <div>
       <Head>
@@ -48,11 +48,12 @@ const ContainerBlock = ({ children, ...customMeta }) => {
         // animate='enter' // Animated state to variants.enter
         exit='exit' // Exit state (used later) to variants.exit
         transition={{ type: 'linear' }} // Set the transition to linear
-        className='dark:bg-gray-800 w-full'>
+        className='dark:bg-brandBlack w-full'
+      >
         <div>{children}</div>
       </motion.main>
     </div>
-  );
-};
+  )
+}
 
-export default ContainerBlock;
+export default ContainerBlock

@@ -1,26 +1,28 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import userData from '@constants/data';
-import { headerVariants, sectionVariants } from '@constants/helperData';
+import React from 'react'
+import { motion } from 'framer-motion'
+import userData from '@constants/data'
+import { headerVariants, sectionVariants } from '@constants/helperData'
 
 export default function Experience() {
   return (
-    <section className='bg-white dark:bg-gray-800'>
-      <div className='max-w-6xl mx-auto h-44 md:h-48 bg-white dark:bg-gray-800 z-50'>
+    <section className='bg-white dark:bg-brandBlack'>
+      <div className='max-w-6xl mx-auto h-44 md:h-48 bg-white dark:bg-brandBlack z-50'>
         <motion.h1
           variants={headerVariants}
           initial='hidden'
           animate='visible'
-          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'>
+          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'
+        >
           Experience
         </motion.h1>
       </div>
-      <div className='bg-brandGray dark:bg-gray-900 -mt-4'>
+      <div className='bg-brandGray dark:bg-brandBlack -mt-4'>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
           animate='visible'
-          className='z-0 grid grid-cols-1 max-w-xl mx-auto pt-20'>
+          className='z-0 grid grid-cols-1 max-w-xl mx-auto pt-20'
+        >
           {/* Experience card */}
           {userData.experience.map((exp, idx) => (
             <>
@@ -37,7 +39,7 @@ export default function Experience() {
                   <div className='w-4 h-4 bg-brandPrimary rounded-full relative z-10'>
                     <div className='w-4 h-4 bg-brandPrimary rounded-full relative z-10 animate-ping'></div>
                   </div>
-                  <div className='w-1 h-24 bg-gray-200 dark:bg-gray-500 rounded-full -mt-2'></div>
+                  <div className='w-1 h-24 bg-gray-200 dark:bg-brandBlack rounded-full -mt-2'></div>
                 </div>
               )}
             </>
@@ -45,7 +47,7 @@ export default function Experience() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
 
 const ExperienceCard = ({ title, desc, year, company, companyLink }) => {
@@ -60,5 +62,5 @@ const ExperienceCard = ({ title, desc, year, company, companyLink }) => {
       </a>
       <p className='text-gray-600 dark:text-gray-400 my-2'>{desc}</p>
     </div>
-  );
-};
+  )
+}

@@ -11,9 +11,9 @@ import Footer from '@components/Footer'
 
 function MyApp({ Component, pageProps, router }) {
   return (
-    <ThemeProvider defaultTheme='light' attribute='class'>
+    <ThemeProvider defaultTheme='dark' attribute='class'>
       <AppState>
-        <div className='dark:bg-zinc-800'>
+        <div className='dark:bg-brandBlack'>
           <Navbar />
           <AnimatePresence
             exitBeforeEnter

@@ -1,51 +1,51 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { testimonials } from '@constants/testimonials';
-import { motion, useAnimation } from 'framer-motion';
-import useWindowDimensions from '@hooks/useWindowDimensions';
-import BoxArrowOutRight from 'icons/BoxArrowOutRight';
-import LandingSectionHeader from './common/LandingSectionHeader';
+import React, { useEffect, useState, useRef } from 'react'
+import { testimonials } from '@constants/testimonials'
+import { motion, useAnimation } from 'framer-motion'
+import useWindowDimensions from '@hooks/useWindowDimensions'
+import BoxArrowOutRight from 'icons/BoxArrowOutRight'
+import LandingSectionHeader from './common/LandingSectionHeader'
 
 export default function Testimonials() {
-  const testHeaderRef = useRef();
-  const { height, width } = useWindowDimensions();
+  const testHeaderRef = useRef()
+  const { height, width } = useWindowDimensions()
 
-  const controls = useAnimation();
+  const controls = useAnimation()
 
-  const [userScrollAmount, setUserScrollAmount] = useState(0);
-  const [headerOffset, setHeaderOffset] = useState(0);
-  const [headerOnScreen, setHeaderOnScreen] = useState(false);
+  const [userScrollAmount, setUserScrollAmount] = useState(0)
+  const [headerOffset, setHeaderOffset] = useState(0)
+  const [headerOnScreen, setHeaderOnScreen] = useState(false)
 
   useEffect(() => {
     // let elem = document.getElementById('code-header');
     // let rect = elem.getBoundingClientRect();
     // console.log('rect :>> ', rect.bottom);
     // setHeaderOffset(rect.top);
-    const { offsetTop } = testHeaderRef.current;
+    const { offsetTop } = testHeaderRef.current
     // console.log('offsetTop :>> ', offsetTop);
-    setHeaderOffset(offsetTop + 1030);
-  }, []);
+    setHeaderOffset(offsetTop + 1030)
+  }, [])
 
   // Controls event listener for scroll / sticky nav
   useEffect(() => {
     if (window !== undefined) {
-      window.addEventListener('scroll', handleScrollChange);
+      window.addEventListener('scroll', handleScrollChange)
     }
     return () => {
-      window.removeEventListener('scroll', handleScrollChange);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScrollChange)
+    }
+  }, [])
 
   useEffect(() => {
-    if (headerOnScreen === true) return;
+    if (headerOnScreen === true) return
     if (userScrollAmount > headerOffset) {
-      setHeaderOnScreen(true);
+      setHeaderOnScreen(true)
     }
-  }, [userScrollAmount]);
+  }, [userScrollAmount])
 
   const handleScrollChange = () => {
-    const scrollAmount = window.scrollY;
-    setUserScrollAmount(scrollAmount);
-  };
+    const scrollAmount = window.scrollY
+    setUserScrollAmount(scrollAmount)
+  }
 
   // Animates header in
   useEffect(() => {
@@ -58,19 +58,20 @@ export default function Testimonials() {
           delay: 0.1,
           ease: 'anticipate',
         },
-      });
+      })
     }
-  }, [headerOnScreen]);
+  }, [headerOnScreen])
 
   return (
-    <section className='bg-[#F6F8F9] -mt-40 dark:bg-gray-900 pb-40 px-5'>
+    <section className='bg-[#F6F8F9] -mt-40 dark:bg-brandBlack pb-40 px-5'>
       <div className='max-w-6xl mx-auto mb-6'>
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={controls}
           id='testimonial-header'
           ref={testHeaderRef}
-          className='flex flex-wrap flex-row md:justify-between items-center md:pt-24 mx-0 md:mx-10'>
+          className='flex flex-wrap flex-row md:justify-between items-center md:pt-24 mx-0 md:mx-10'
+        >
           <LandingSectionHeader headerName='Kind Words' />
         </motion.div>
       </div>
@@ -78,14 +79,15 @@ export default function Testimonials() {
         initial={{ opacity: 0, x: 80 }}
         animate={controls}
         id='code-header'
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto lg:-mt-4 gap-y-20'>
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto lg:-mt-4 gap-y-20'
+      >
         {testimonials &&
           testimonials.map((testimonial, idx) => (
             <TestimonialCard testimonial={testimonial} key={idx} />
           ))}
       </motion.div>
     </section>
-  );
+  )
 }
 
 const TestimonialCard = ({ testimonial }) => {
@@ -112,5 +114,5 @@ const TestimonialCard = ({ testimonial }) => {
         <p class='text-xs text-gray-500 text-center'>{testimonial.title}</p>
       </div>
     </div>
-  );
-};
+  )
+}

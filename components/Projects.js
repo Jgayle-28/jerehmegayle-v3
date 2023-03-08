@@ -1,29 +1,31 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import React from 'react'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 // Data
-import userData from '@constants/data';
-import { headerVariants, sectionVariants } from '@constants/helperData';
+import userData from '@constants/data'
+import { headerVariants, sectionVariants } from '@constants/helperData'
 
 export default function Projects() {
   return (
-    <section className='bg-white dark:bg-gray-800'>
-      <div className='max-w-6xl mx-auto h-40 md:h-48 bg-white dark:bg-gray-800'>
+    <section className='bg-white dark:bg-brandBlack'>
+      <div className='max-w-6xl mx-auto h-40 md:h-48 bg-white dark:bg-brandBlack'>
         <motion.h1
           variants={headerVariants}
           initial='hidden'
           animate='visible'
-          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'>
+          className='text-7xl md:text-9xl font-bold py-20 text-left px-5'
+        >
           Projects
         </motion.h1>
       </div>
       {/* Grid starts here */}
-      <div className='bg-brandGray dark:bg-gray-900 px-5'>
+      <div className='bg-brandGray dark:bg-brandBlack px-5'>
         <motion.div
           variants={sectionVariants}
           initial='hidden'
           animate='visible'
-          className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-20 pb-40'>
+          className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-20 pb-40'
+        >
           {userData.projects.map((proj, idx) => (
             <ProjectCard
               key={idx}
@@ -36,7 +38,7 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }
 
 const ProjectCard = ({ title, link, imgUrl, number }) => {
@@ -60,5 +62,5 @@ const ProjectCard = ({ title, link, imgUrl, number }) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
