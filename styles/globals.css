@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'fonts.css';
 @import 'preloader.css';
 @import 'animations.css';
 @import 'customScrollStyle.css';
