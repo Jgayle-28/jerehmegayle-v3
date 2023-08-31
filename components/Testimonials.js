@@ -92,26 +92,28 @@ export default function Testimonials() {
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div class='w-full mx-auto rounded-lg bg-white shadow-lg px-5 pt-5 pb-10 dark:text-gray-600 text-gray-800 dark:bg-gray-800 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
-      <div class='w-full pt-1 pb-5'>
-        <div class='overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg'>
+    <div className='w-full mx-auto rounded-lg bg-white shadow-lg px-5 pt-5 pb-10 dark:text-gray-600 text-gray-800 dark:bg-gray-800 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
+      <div className='w-full pt-1 pb-5'>
+        <div className='overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg'>
           <img src={testimonial.avatar} alt='avatar' />
         </div>
       </div>
-      <div class='w-full mb-10'>
-        <div class='text-3xl text-brandPrimary text-left leading-tight h-3'>
+      <div className='w-full mb-10'>
+        <div className='text-3xl text-brandPrimary text-left leading-tight h-3'>
           “
         </div>
-        <p class='text-sm text-gray-600 text-center px-5'>{testimonial.text}</p>
-        <div class='text-3xl text-brandPrimary text-right leading-tight h-3 -mt-3'>
+        <p className='text-sm text-gray-600 text-center px-5'>
+          {testimonial.text}
+        </p>
+        <div className='text-3xl text-brandPrimary text-right leading-tight h-3 -mt-3'>
           ”
         </div>
       </div>
-      <div class='w-full'>
-        <p class='text-md text-brandPrimary dark:text-white font-bold text-center'>
+      <div className='w-full'>
+        <p className='text-md text-brandPrimary dark:text-white font-bold text-center'>
           {testimonial.name}
         </p>
-        <p class='text-xs text-gray-500 text-center'>{testimonial.title}</p>
+        <p className='text-xs text-gray-500 text-center'>{testimonial.title}</p>
       </div>
     </div>
   )

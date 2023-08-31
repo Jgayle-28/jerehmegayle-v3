@@ -1,6 +1,7 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '../styles/globals.css'
+import '../styles/global.scss'
 import '../styles/Home.module.css'
 
 import { ThemeProvider } from 'next-themes'
@@ -10,11 +11,12 @@ import Navbar from '@components/navBar/NavBar'
 import Footer from '@components/Footer'
 
 function MyApp({ Component, pageProps, router }) {
+  // TODO: Need to uncomment navbar & footer when ready to release
   return (
     <ThemeProvider defaultTheme='dark' attribute='class'>
       <AppState>
         <div className='dark:bg-brandBlack'>
-          <Navbar />
+          {/* <Navbar /> */}
           <AnimatePresence
             exitBeforeEnter
             // initial={false}
@@ -22,7 +24,7 @@ function MyApp({ Component, pageProps, router }) {
           >
             <Component {...pageProps} key={router.route} />
           </AnimatePresence>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </AppState>
     </ThemeProvider>

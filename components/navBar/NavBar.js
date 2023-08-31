@@ -7,6 +7,7 @@ import AppContext from 'context/appContext'
 // Icons
 import userData from '@constants/data'
 import Socials from '../common/Socials'
+import Brand from '@components/Brand'
 
 const variants = {
   visible: {
@@ -48,10 +49,10 @@ export default function Navbar() {
           animate={'visible'} //Stops animation on every load
           className='bg-white dark:bg-brandBlack'
         >
-          <div className='max-w-6xl mx-auto px-4 py-10 lg:py-10 bg-white dark:bg-brandBlack'>
+          <div className='px-5 md:px-7 lg:px-20 mx-auto py-10 lg:py-10 bg-white dark:bg-brandBlack'>
             <div className='flex md:flex-row justify-between items-center '>
               {/* Logo / Home / Text */}
-              <div className='flex flex-col'>
+              {/* <div className='flex flex-col'>
                 <Link href='/'>
                   <a>
                     <h1 className='font-semibold text-xl dark:text-gray-100'>
@@ -64,8 +65,12 @@ export default function Navbar() {
                       {userData.designation}
                     </p>
                   </a>
+                  
                 </Link>
-              </div>
+              </div> */}
+              <Link href='/'>
+                <Brand />
+              </Link>
               {/* Navbar Links */}
               <div className='md:space-x-4 mt-4 md:mt-0 hidden md:block'>
                 <NavBarLinks />
@@ -73,7 +78,7 @@ export default function Navbar() {
               {/* Socials & Theme toggle */}
               <div className='md:space-x-6 flex flex-row items-center'>
                 <Socials />
-                <button
+                {/* <button
                   aria-label='Toggle Dark Mode'
                   type='button'
                   className='w-10 h-10 p-3 rounded focus:outline-none'
@@ -104,7 +109,7 @@ export default function Navbar() {
                       )}
                     </svg>
                   )}
-                </button>
+                </button> */}
               </div>
             </div>
             {/* Mobile Navbar Links */}

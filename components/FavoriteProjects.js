@@ -72,9 +72,7 @@ export default function FavoriteProjects({ finishedAnimation }) {
   }
 
   return (
-    <div
-      className={`bg-brandGray dark:bg-brandBlack ${getCurrentClass()} px-5  pt-0 md:pt-40 md:pt-0`}
-    >
+    <div className={` ${getCurrentClass()} px-5  pt-0 md:pt-40 md:pt-0`}>
       <div className='max-w-6xl mx-auto'>
         <motion.header
           initial={{ opacity: 0, x: -40 }}
@@ -85,9 +83,14 @@ export default function FavoriteProjects({ finishedAnimation }) {
           <LandingSectionHeader headerName='Favorite Projects' />
           <motion.div initial={{ opacity: 0, x: 80 }} animate={controls}>
             <Link href='/projects'>
-              <a className='mb-10 md:mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg dark:shadow-dark-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'>
-                <BoxArrowOutRight />
-                <p>View all</p>
+              <a
+                data-text='View All'
+                // className='mb-10 md:mb-20 md:mb-0 px-8 py-4 rounded-md bg-white shadow-lg dark:shadow-dark-lg text-xl font-semibold flex flex-row space-x-4 items-center text-brandPrimary dark:text-gray-700 transform hover:scale-95 hover:translate-y-1 hover:!shadow-none transition duration-300 ease-out'
+                className='glitch-button'
+              >
+                View All
+                {/* <BoxArrowOutRight />
+                <p>View all</p> */}
               </a>
             </Link>
           </motion.div>

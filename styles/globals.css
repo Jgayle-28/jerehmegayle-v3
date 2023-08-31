@@ -7,6 +7,8 @@
 @import 'animations.css';
 @import 'customScrollStyle.css';
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100');
+
 html,
 body {
   padding: 0;

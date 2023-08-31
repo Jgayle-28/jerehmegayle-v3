@@ -2,7 +2,7 @@ const userData = {
   githubUsername: 'Jgayle-28',
   name: 'Jerehme Gayle',
   designation: 'Full-Stack Developer',
-  avatarUrl: '/img/avatar.png',
+  avatarUrl: '/img/avatar-1.png',
   email: 'jerehme.gayle@gmail.com',
   phone: '867-5309',
   address: 'Planet Earth',
@@ -123,11 +123,11 @@ const userData = {
     'https://drive.google.com/file/d/1BZ6st2kmVRMS3NrTsnrL4PHa5DHOHn6_/view?usp=sharing',
   socialLinks: {
     linkedin: 'https://linkedin.com/in/jerehme-gayle',
-    instagram: 'https://instagram.com/jerehme.gayle/',
+    // instagram: 'https://instagram.com/jerehme.gayle/',
     github: 'https://github.com/Jgayle-28',
-    // twitter: 'https://twitter.com/jerehmeg',
+    twitter: 'https://twitter.com/Jgayle28',
     // facebook: 'https://facebook.com/',
   },
-};
+}
 
-export default userData;
+export default userData

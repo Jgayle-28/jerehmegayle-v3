@@ -97,3 +97,37 @@ Multi use animations & Classes
     transform: translateY(0);
   }
 }
+/**
+ * ----------------------------------------
+ *  Shake 
+ * ----------------------------------------
+ */
+.slide-to-top-delay {
+  -webkit-animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.4s
+    both;
+  animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.4s both;
+}
+.shake {
+  -webkit-animation: shake 0.8s alternate;
+  animation: shake 0.8s alternate;
+}
+@keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
