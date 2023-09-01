@@ -9,7 +9,7 @@ function ComingSoon() {
   return (
     <div className='h-screen flex flex-col items-center justify-center flex-1 relative'>
       {/* Brand and socials */}
-      <nav className='bg-white dark:bg-brandBlack absolute top-0 w-full'>
+      <nav className='bg-white dark:bg-brandBlack absolute top-0 w-full fade-in delay-4'>
         <div className='px-7 lg:px-20 mx-auto py-10 lg:py-10 bg-white dark:bg-brandBlack'>
           <div className='flex md:flex-row justify-between items-center'>
             <Link href='/'>
@@ -28,7 +28,7 @@ function ComingSoon() {
       <main className='h-100 text-center px-7 lg:px-20'>
         <div className='grid grd-cols-1 md:grid-cols-2 gap-4 items-center'>
           {/* Graphics */}
-          <div>
+          <div className='flicker-in'>
             <video
               muted
               className='w-full h-full object-cover'
@@ -41,7 +41,7 @@ function ComingSoon() {
             ></video>
           </div>
           {/* Copy */}
-          <div>
+          <div className='fade-in delay-3'>
             <p className='text-left mb-4 text-xl'>
               It's not here yet, but i'll let you in on a secret. It's coming
               really, really soon. So sit tight and check back in. You just
