@@ -7,12 +7,12 @@ export default async function handler(req, res) {
         'https://api.sendgrid.com/v3/marketing/contacts',
         {
           contacts: [{ email: `${req.body.email}` }],
-          list_ids: [process.env.SENDGRID_MAILING_ID],
+          list_ids: [process.env.NEXT_PUBLIC_SENDGRID_MAILING_ID],
         },
         {
           headers: {
             'content-type': 'application/json',
-            Authorization: `Bearer ${process.env.SENDGRID_SECRET}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_SENDGRID_SECRET}`,
           },
         }
       )

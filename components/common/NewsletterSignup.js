@@ -9,9 +9,12 @@ function NewsletterSignup() {
   const [message, setMessage] = useState(null)
   console.log(
     'process.env.SENDGRID_MAILING_ID :>> ',
-    process.env.SENDGRID_MAILING_ID
+    process.env.NEXT_PUBLIC_SENDGRID_MAILING_ID
   )
-  console.log('process.env.SENDGRID_SECRET :>> ', process.env.SENDGRID_SECRET)
+  console.log(
+    'process.env.SENDGRID_SECRET :>> ',
+    process.env.NEXT_PUBLIC_SENDGRID_SECRET
+  )
 
   const handleSubmit = useCallback(() => {
     console.log('email :>> ', email)
