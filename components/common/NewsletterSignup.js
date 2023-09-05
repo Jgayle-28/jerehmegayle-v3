@@ -7,23 +7,24 @@ function NewsletterSignup() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [message, setMessage] = useState(null)
-  console.log(
-    'process.env.SENDGRID_MAILING_ID :>> ',
-    process.env.NEXT_PUBLIC_SENDGRID_MAILING_ID
-  )
-  console.log(
-    'process.env.SENDGRID_SECRET :>> ',
-    process.env.NEXT_PUBLIC_SENDGRID_SECRET
-  )
 
   const handleSubmit = useCallback(() => {
     console.log('email :>> ', email)
     if (!email) return setMessage('Please enter a valid email address')
     setLoading(true)
     axios
-      .put('api/mailingList', {
-        email,
-      })
+      .put(
+        'api/mailingList',
+        {
+          email,
+        },
+        {
+          headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_SENDGRID_SECRET}`,
+          },
+        }
+      )
       .then((result) => {
         if (result.status === 200) {
           setLoading(false)
