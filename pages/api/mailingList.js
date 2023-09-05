@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default async function handler(req, res) {
   if (req.method === 'PUT') {
-    axios
+    await axios
       .put(
         'https://api.sendgrid.com/v3/marketing/contacts',
         {
@@ -18,6 +18,7 @@ export default async function handler(req, res) {
       )
       .then((result) => {
         res.status(200).send({
+          result,
           message:
             'Success! Your email has been successfully added to the mailing list. Welcome to the Code Gang 👊',
         })

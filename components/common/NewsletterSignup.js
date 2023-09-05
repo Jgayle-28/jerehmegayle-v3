@@ -26,6 +26,7 @@ function NewsletterSignup() {
         }
       )
       .then((result) => {
+        console.log('result :>> ', result)
         if (result.status === 200) {
           setLoading(false)
           setSuccess(true)
