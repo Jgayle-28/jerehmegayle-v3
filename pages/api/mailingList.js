@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default async function handler(req, res) {
   if (req.method === 'PUT') {
-    await axios
+    axios
       .put(
         'https://api.sendgrid.com/v3/marketing/contacts',
         {
@@ -24,6 +24,7 @@ export default async function handler(req, res) {
         })
       })
       .catch((err) => {
+        console.log('err :>> ', err)
         res.status(500).send({
           error: err,
           message:

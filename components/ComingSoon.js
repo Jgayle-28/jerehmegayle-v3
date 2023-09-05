@@ -65,13 +65,7 @@ function ComingSoon() {
               Or use the social links above to connect.
             </p>
             {/* Newsletter Signup */}
-            <p className='text-sm text-left mb-4 mb2 text-brandPrimary'>
-              Want to be the first to know when this beast goes live?
-            </p>
-            <p className='text-sm text-left mb-4 mb2 text-brandPrimary'>
-              Sign up and become a member of the Code Gang below, and as an
-              extra bonus you will get some extra sauce in meantime.
-            </p>
+
             <NewsletterSignup />
           </div>
         </div>

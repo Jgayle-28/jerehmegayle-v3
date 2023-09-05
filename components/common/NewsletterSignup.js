@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
-import Alert from './Alert'
 import axios from 'axios'
+import { validateEmail } from '@utils/general'
+import Alert from './Alert'
 
 function NewsletterSignup() {
   const [email, setEmail] = useState('')
@@ -9,14 +10,16 @@ function NewsletterSignup() {
   const [message, setMessage] = useState(null)
 
   const handleSubmit = useCallback(() => {
-    console.log('email :>> ', email)
     if (!email) return setMessage('Please enter a valid email address')
+    if (!validateEmail(email))
+      return setMessage('Please enter a valid email address')
     setLoading(true)
     axios
       .put(
-        'api/mailingList',
+        'https://api.sendgrid.com/v3/marketing/contacts',
         {
-          email,
+          contacts: [{ email }],
+          list_ids: [process.env.NEXT_PUBLIC_SENDGRID_MAILING_ID],
         },
         {
           headers: {
@@ -25,9 +28,8 @@ function NewsletterSignup() {
           },
         }
       )
-      .then((result) => {
-        console.log('result :>> ', result)
-        if (result.status === 200) {
+      .then((res) => {
+        if (res.status === 200 || res.status === 201 || res.status === 202) {
           setLoading(false)
           setSuccess(true)
           setEmail('')
@@ -36,12 +38,23 @@ function NewsletterSignup() {
       .catch((err) => {
         console.log(err)
         setLoading(false)
-        setMessage(err.response.data.message)
+        setMessage('Oops, looks like something went wrong, please try again.')
       })
   }, [email])
 
   return (
     <>
+      {!success && (
+        <>
+          <p className='text-sm text-left mb-4 mb2 text-brandPrimary'>
+            Want to be the first to know when this beast goes live?
+          </p>
+          <p className='text-sm text-left mb-4 mb2 text-brandPrimary'>
+            Sign up and become a member of the Code Gang below, and as an extra
+            bonus you will get some extra sauce in meantime.
+          </p>
+        </>
+      )}
       {success && (
         <Alert type='success'>
           <p className='text-left mb-3'>
