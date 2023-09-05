@@ -9,7 +9,7 @@ function ComingSoon() {
   return (
     <div className='h-screen flex flex-col items-center justify-center flex-1 relative'>
       {/* Brand and socials */}
-      <nav className='bg-white dark:bg-brandBlack absolute top-0 w-full fade-in delay-4'>
+      <nav className='bg-white dark:bg-brandBlack absolute top-0 w-full fade-in delay-3-4'>
         <div className='px-7 lg:px-20 mx-auto py-10 lg:py-10 bg-white dark:bg-brandBlack'>
           <div className='flex md:flex-row justify-between items-center'>
             <Link href='/'>
@@ -28,7 +28,7 @@ function ComingSoon() {
       <main className='h-100 text-center px-7 lg:px-20'>
         <div className='grid grd-cols-1 md:grid-cols-2 gap-4 items-center'>
           {/* Graphics */}
-          <div className='flicker-in'>
+          <div className='flicker-in delay-700'>
             <video
               muted
               className='w-full h-full object-cover'

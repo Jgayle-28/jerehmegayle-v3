@@ -74,6 +74,9 @@ Utilities
 .delay-3 {
   animation-delay: 3s;
 }
+.delay-3-4 {
+  animation-delay: 3.4s;
+}
 .delay-4 {
   animation-delay: 4s;
 }
