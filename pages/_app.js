@@ -18,14 +18,14 @@ function MyApp({ Component, pageProps, router }) {
       <AppState>
         <div className='dark:bg-brandBlack'>
           {/* <Navbar /> */}
-          <AnimatePresence
-            exitBeforeEnter
+          {/* <AnimatePresence
+            // exitBeforeEnter
             // initial={false}
             onExitComplete={() => window.scrollTo(0, 0)}
-          >
-            <Component {...pageProps} key={router.route} />
-            <Analytics />
-          </AnimatePresence>
+          > */}
+          <Component {...pageProps} key={router.route} />
+          <Analytics />
+          {/* </AnimatePresence> */}
           {/* <Footer /> */}
         </div>
       </AppState>
